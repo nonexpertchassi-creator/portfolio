@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>차호근 — 프론트엔드·SEO/GEO 포트폴리오</title>
-<meta name="description" content="프론트엔드 개발·웹 퍼블리싱·프로젝트 리드 경험과 Technical SEO, GEO/AEO 정보 구조 설계 기준을 근거 중심으로 정리한 차호근의 포트폴리오입니다.">
+<title>차호근 — 구조를 읽고, 직접 만드는 사람</title>
+<meta name="description" content="17년 디자인 실무를 기반으로 콘텐츠 구조, 시스템 구조, 코드 구조를 연결해온 차호근의 포트폴리오입니다. PUI-X 사내 시스템, 프론트엔드 구조 설계, SEO/GEO와 AI 협업 방법론을 다룹니다.">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#EFEEEA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131619" media="(prefers-color-scheme: dark)">
@@ -12,12 +12,12 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="차호근 포트폴리오">
-<meta property="og:title" content="차호근 — 프론트엔드·SEO/GEO 포트폴리오">
-<meta property="og:description" content="코드 기여와 리드 경험, 검색엔진·답변엔진이 이해할 수 있는 정보 구조 설계 기준을 검증 가능한 근거와 함께 정리했습니다.">
+<meta property="og:title" content="차호근 — 구조를 읽고, 직접 만드는 사람">
+<meta property="og:description" content="콘텐츠 구조, 시스템 구조, 코드 구조를 한 사람 안에서 연결합니다.">
 <meta property="og:url" content="https://nonexpertchassi-creator.github.io/portfolio/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="차호근 — 프론트엔드·SEO/GEO 포트폴리오">
-<meta name="twitter:description" content="프론트엔드·웹 퍼블리싱·프로젝트 리드와 SEO/GEO 설계 경험을 근거 중심으로 정리한 포트폴리오입니다.">
+<meta name="twitter:title" content="차호근 — 구조를 읽고, 직접 만드는 사람">
+<meta name="twitter:description" content="PUI-X 사내 시스템부터 프론트엔드 구조 설계, SEO/GEO와 AI 협업 방법론까지.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,16 +27,15 @@
       "@id": "https://nonexpertchassi-creator.github.io/portfolio/#person",
       "name": "차호근",
       "url": "https://nonexpertchassi-creator.github.io/portfolio/",
-      "jobTitle": "Frontend Developer · Web Publisher · Project Lead",
+      "jobTitle": "Product System Designer · Frontend Lead",
       "knowsAbout": [
-        "Frontend Development",
+        "Product System Design",
+        "Frontend Architecture",
         "Web Publishing",
-        "Project Leadership",
         "Technical SEO",
-        "Semantic HTML",
-        "Structured Data",
         "GEO",
-        "AEO"
+        "AEO",
+        "AI-assisted Development"
       ],
       "sameAs": ["https://github.com/nonexpertchassi-creator"]
     },
@@ -52,227 +51,390 @@
 }
 </script>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:  #EFEEEA;
-    --card:   #F7F7F4;
-    --ink:    #191C1F;
-    --slate:  #6A727A;
-    --faint:  #9AA1A8;
-    --hair:   #D8D7D1;
+    --paper: #EFEEEA;
+    --card: #F7F7F4;
+    --ink: #191C1F;
+    --slate: #687078;
+    --faint: #969DA3;
+    --hair: #D7D6D0;
     --accent: #A65A22;
     --accent-mid: #D0965F;
-    --accent-soft: rgba(166, 90, 34, 0.14);
-    --bar-other: #CFCEC7;
-
+    --accent-soft: rgba(166, 90, 34, 0.12);
+    --safe: #4D6A5A;
+    --warn: #8B5D38;
     --sans: "Apple SD Gothic Neo", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
-
+    --wide: 1080px;
     --measure: 68ch;
-    --wide: 1000px;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper:  #131619;
-      --card:   #1A1D21;
-      --ink:    #E7E6E1;
-      --slate:  #8D949B;
-      --faint:  #6B7278;
-      --hair:   #2A2E33;
+      --paper: #131619;
+      --card: #1A1D21;
+      --ink: #E7E6E1;
+      --slate: #92999F;
+      --faint: #6F767C;
+      --hair: #2D3136;
       --accent: #D68C33;
-      --accent-mid: #8C5C2B;
-      --accent-soft: rgba(214, 140, 51, 0.16);
-      --bar-other: #333940;
+      --accent-mid: #916039;
+      --accent-soft: rgba(214, 140, 51, 0.14);
+      --safe: #8FB19D;
+      --warn: #D3A071;
     }
   }
-  :root[data-theme="dark"] {
-    --paper:  #131619; --card: #1A1D21; --ink: #E7E6E1; --slate: #8D949B;
-    --faint: #6B7278; --hair: #2A2E33; --accent: #D68C33; --accent-mid: #8C5C2B;
-    --accent-soft: rgba(214, 140, 51, 0.16); --bar-other: #333940;
-  }
-  :root[data-theme="light"] {
-    --paper: #EFEEEA; --card: #F7F7F4; --ink: #191C1F; --slate: #6A727A;
-    --faint: #9AA1A8; --hair: #D8D7D1; --accent: #A65A22; --accent-mid: #D0965F;
-    --accent-soft: rgba(166, 90, 34, 0.14); --bar-other: #CFCEC7;
-  }
 
+  html { scroll-behavior: smooth; }
   body {
-    background: var(--paper); color: var(--ink); font-family: var(--sans);
-    font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased;
-    padding: 0 24px 120px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 24px 96px;
   }
-  .wrap { max-width: var(--wide); margin: 0 auto; }
-  .skip-link { position: fixed; top: 12px; left: 12px; z-index: 10; background: var(--ink); color: var(--paper); padding: 8px 12px; font-family: var(--mono); font-size: 12px; text-decoration: none; transform: translateY(-180%); transition: transform 0.18s ease; }
-  .skip-link:focus { transform: translateY(0); }
+  a { color: inherit; }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  strong { color: var(--ink); font-weight: 700; }
+  code { font-family: var(--mono); font-size: 0.86em; }
+  .wrap { max-width: var(--wide); margin: 0 auto; }
+  .skip-link {
+    position: fixed; top: 12px; left: 12px; z-index: 20;
+    padding: 8px 12px; background: var(--ink); color: var(--paper);
+    font-family: var(--mono); font-size: 12px; text-decoration: none;
+    transform: translateY(-180%); transition: transform 0.18s ease;
+  }
+  .skip-link:focus { transform: translateY(0); }
 
-  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); }
-  h1 { font-size: clamp(34px, 6vw, 54px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; text-wrap: balance; margin: 14px 0 0; }
-  h2 { font-size: clamp(21px, 3vw, 26px); font-weight: 750; letter-spacing: -0.02em; line-height: 1.3; text-wrap: balance; }
-  h3 { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
-  .lede { font-size: 18px; color: var(--slate); line-height: 1.65; }
-  strong { font-weight: 700; color: var(--ink); }
-  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
-  code { font-family: var(--mono); font-size: 12px; }
+  .eyebrow {
+    color: var(--faint); font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  h1 {
+    max-width: 880px; margin-top: 18px;
+    font-size: clamp(38px, 7vw, 72px); font-weight: 820;
+    letter-spacing: -0.045em; line-height: 1.06; text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(25px, 4vw, 36px); font-weight: 780;
+    letter-spacing: -0.03em; line-height: 1.2; text-wrap: balance;
+  }
+  h3 { font-size: 17px; font-weight: 720; letter-spacing: -0.015em; line-height: 1.35; }
+  h4 { font-size: 14px; font-weight: 700; }
 
-  header.mast { padding: 88px 0 40px; border-bottom: 1px solid var(--hair); }
-  .mast .role { margin-top: 20px; font-size: 17px; color: var(--slate); max-width: var(--measure); }
-  .mast .role b { color: var(--accent); font-weight: 700; }
-  .meta-row { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 28px; font-family: var(--mono); font-size: 12px; color: var(--faint); }
-  .meta-row span b { color: var(--slate); font-weight: 400; }
+  .mast { padding: 88px 0 46px; border-bottom: 1px solid var(--hair); }
+  .mast .positioning {
+    max-width: 780px; margin-top: 28px; color: var(--slate);
+    font-size: clamp(17px, 2.2vw, 20px); line-height: 1.7;
+  }
+  .mast .positioning strong { color: var(--accent); }
+  .mast-meta {
+    display: flex; flex-wrap: wrap; gap: 8px 26px; margin-top: 30px;
+    color: var(--faint); font-family: var(--mono); font-size: 11.5px;
+  }
 
-  section { padding: 64px 0; border-bottom: 1px solid var(--hair); }
-  .sec-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
-  .sec-head p { max-width: var(--measure); color: var(--slate); }
+  .structure-nav {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid var(--hair);
+  }
+  .structure-nav a {
+    min-height: 76px; padding: 16px 14px; border-right: 1px solid var(--hair);
+    color: var(--slate); text-decoration: none; font-size: 12px; line-height: 1.45;
+  }
+  .structure-nav a:first-child { border-left: 1px solid var(--hair); }
+  .structure-nav .n {
+    display: block; margin-bottom: 6px; color: var(--accent);
+    font-family: var(--mono); font-size: 10px;
+  }
+  .structure-nav a:hover { background: var(--accent-soft); color: var(--ink); }
 
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
-  .stat { background: var(--paper); padding: 24px 20px; }
-  .stat .v { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: clamp(26px, 3.6vw, 34px); font-weight: 600; letter-spacing: -0.02em; color: var(--accent); line-height: 1.1; }
-  .stat .k { margin-top: 8px; font-size: 13px; color: var(--slate); line-height: 1.45; }
+  .chapter {
+    position: relative; padding: 78px 0; border-bottom: 1px solid var(--hair);
+  }
+  .chapter-head {
+    display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 26px;
+    margin-bottom: 40px;
+  }
+  .chapter-no {
+    color: var(--accent); font-family: var(--mono); font-size: 12px;
+    letter-spacing: 0.08em; padding-top: 8px;
+  }
+  .chapter-intro { max-width: var(--measure); margin-top: 12px; color: var(--slate); }
+  .role-line {
+    display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px;
+    color: var(--slate); font-family: var(--mono); font-size: 12px;
+  }
+  .role-line b { color: var(--ink); font-weight: 600; }
 
-  .split { margin-top: 12px; display: flex; height: 44px; border: 1px solid var(--hair); overflow: hidden; }
-  .split .seg { display: flex; align-items: center; padding: 0 14px; font-family: var(--mono); font-size: 12px; white-space: nowrap; }
-  .split .front { background: var(--accent); color: #fff; flex: 998; }
-  .split .back  { background: var(--bar-other); color: var(--slate); flex: 2; justify-content: center; padding: 0; }
-  .split-key { display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--faint); }
+  .problem {
+    display: grid; grid-template-columns: minmax(190px, 0.55fr) 1.45fr;
+    gap: 28px; padding: 28px; background: var(--card); border: 1px solid var(--hair);
+  }
+  .problem .label {
+    color: var(--accent); font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .problem-copy { color: var(--slate); font-size: 16px; }
+  .problem-copy p + p { margin-top: 14px; }
+  .problem-copy .definition {
+    color: var(--ink); font-size: 18px; font-weight: 650; line-height: 1.55;
+  }
+  .clarified {
+    margin-top: 18px; padding-left: 16px; border-left: 2px solid var(--accent);
+    color: var(--slate); font-size: 14px;
+  }
 
-  .breakdown { margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; }
-  .bd { border-top: 2px solid var(--accent); padding-top: 12px; }
-  .bd .v { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 22px; font-weight: 600; }
-  .bd .k { font-size: 13px; color: var(--slate); margin-top: 2px; }
+  .plates { margin-top: 34px; }
+  .plate {
+    background: var(--card); border: 1px solid var(--hair); padding: 26px;
+  }
+  .plate + .plate { margin-top: 16px; }
+  .plate-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--hair);
+  }
+  .plate-no { color: var(--accent); font-family: var(--mono); font-size: 10px; letter-spacing: 0.09em; }
+  .plate-note { color: var(--faint); font-family: var(--mono); font-size: 10.5px; text-align: right; }
 
-  .ledger { display: flex; flex-direction: column; }
-  .proj { display: flex; flex-direction: column; gap: 16px; padding: 28px 0; border-top: 1px solid var(--hair); }
-  .proj:last-child { border-bottom: 1px solid var(--hair); }
-  .proj-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; }
-  .proj-top .rank { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; padding: 3px 8px; border: 1px solid var(--accent); color: var(--accent); border-radius: 2px; white-space: nowrap; }
-  .proj-top .rank.plain { border-color: var(--hair); color: var(--faint); }
-  .proj-top .when { font-family: var(--mono); font-size: 12px; color: var(--faint); margin-left: auto; }
+  .before-after {
+    display: grid; grid-template-columns: 1fr 50px 1fr; gap: 14px;
+    align-items: stretch; margin-top: 22px;
+  }
+  .lane { padding: 20px; border: 1px solid var(--hair); background: var(--paper); }
+  .lane-label {
+    display: flex; justify-content: space-between; gap: 12px; margin-bottom: 18px;
+    color: var(--faint); font-family: var(--mono); font-size: 10px;
+  }
+  .lane.after .lane-label { color: var(--accent); }
+  .flow {
+    display: flex; align-items: stretch; gap: 7px; min-height: 86px;
+  }
+  .flow-node {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    min-width: 0; padding: 10px 7px; border: 1px solid var(--hair);
+    color: var(--slate); font-size: 11.5px; line-height: 1.45; text-align: center;
+  }
+  .flow-node.risk { border-color: var(--accent-mid); color: var(--ink); }
+  .flow-node.core { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .flow-arrow {
+    display: flex; align-items: center; color: var(--faint);
+    font-family: var(--mono); font-size: 11px;
+  }
+  .change-arrow {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-family: var(--mono); font-size: 18px;
+  }
+  .lane-caption { margin-top: 14px; color: var(--slate); font-size: 12.5px; }
+  .lane-caption b { color: var(--ink); }
 
-  .own { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-  .own .track { flex: 1 1 260px; height: 10px; background: var(--bar-other); position: relative; overflow: hidden; }
-  .own .fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); }
-  .own .lab { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 12px; color: var(--slate); white-space: nowrap; }
-  .own .lab b { color: var(--ink); font-weight: 600; }
-  .proj-work { color: var(--slate); font-size: 15px; max-width: var(--measure); }
-  .proj-work b { color: var(--ink); font-weight: 650; }
-  .proj-work code { background: var(--accent-soft); color: var(--accent); padding: 1px 5px; border-radius: 2px; }
+  .plate-grid {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px; margin-top: 16px;
+  }
+  .plate-grid .plate { margin-top: 0; }
+  .architecture { margin-top: 22px; display: flex; flex-direction: column; gap: 9px; }
+  .arch-layer {
+    display: grid; grid-template-columns: 112px 1fr; gap: 12px;
+    align-items: center; padding: 12px; border: 1px solid var(--hair); background: var(--paper);
+  }
+  .arch-name { color: var(--accent); font-family: var(--mono); font-size: 10px; }
+  .arch-modules { display: flex; flex-wrap: wrap; gap: 6px; }
+  .arch-modules span {
+    padding: 4px 7px; background: var(--card); border: 1px solid var(--hair);
+    color: var(--slate); font-family: var(--mono); font-size: 10px;
+  }
+  .arch-link { height: 8px; margin-left: 55px; border-left: 1px solid var(--accent); }
+  .external {
+    margin-top: 10px; padding: 10px 12px; border-left: 2px solid var(--accent-mid);
+    color: var(--slate); font-size: 11.5px;
+  }
 
-  /* 스크린샷 슬롯 — img/파일.png 넣으면 자동으로 뜸. 없으면 onerror 로 알아서 사라짐. */
-  .shot { margin-top: 4px; border: 1px solid var(--hair); background: var(--card); overflow: hidden; }
-  .shot > a { display: block; }
-  .shot img { display: block; width: 100%; height: 260px; object-fit: contain; background: var(--card); }
-  .shot figcaption { font-family: var(--mono); font-size: 11px; color: var(--faint); padding: 8px 12px; border-top: 1px solid var(--hair); }
-  .shot figcaption a { color: var(--accent); text-decoration: none; }
-  .shot figcaption a:hover { text-decoration: underline; }
+  .user-flow { display: flex; flex-direction: column; margin-top: 22px; }
+  .user-step {
+    display: grid; grid-template-columns: 34px 1fr; gap: 12px;
+    padding: 13px 0; border-top: 1px solid var(--hair);
+  }
+  .user-step:last-child { border-bottom: 1px solid var(--hair); }
+  .user-step .sn { color: var(--accent); font-family: var(--mono); font-size: 10px; padding-top: 3px; }
+  .user-step p { color: var(--slate); font-size: 13px; }
+  .user-step p b { color: var(--ink); }
 
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tags span { font-family: var(--mono); font-size: 11px; color: var(--slate); border: 1px solid var(--hair); padding: 3px 8px; border-radius: 2px; white-space: nowrap; }
-  .proj .meta-line { font-family: var(--mono); font-size: 12px; color: var(--faint); }
-  .proj .meta-line b { color: var(--accent); font-weight: 600; }
+  .proof-decisions {
+    display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 16px; margin-top: 16px;
+  }
+  .proof, .decisions { border: 1px solid var(--hair); background: var(--card); padding: 24px; }
+  .subhead { margin-bottom: 18px; }
+  .subhead .eyebrow { margin-bottom: 7px; }
+  .proof-list { list-style: none; }
+  .proof-list li {
+    padding: 14px 0; border-top: 1px solid var(--hair);
+    color: var(--slate); font-size: 13.5px;
+  }
+  .proof-list li:last-child { border-bottom: 1px solid var(--hair); }
+  .proof-list .proof-state {
+    display: block; margin-bottom: 4px; color: var(--accent);
+    font-family: var(--mono); font-size: 10px;
+  }
+  .decisions ol { list-style: none; counter-reset: decision; }
+  .decisions li {
+    counter-increment: decision; position: relative; padding: 14px 0 14px 40px;
+    border-top: 1px solid var(--hair); color: var(--slate); font-size: 13.5px;
+  }
+  .decisions li:last-child { border-bottom: 1px solid var(--hair); }
+  .decisions li::before {
+    content: counter(decision, decimal-leading-zero); position: absolute; left: 0; top: 14px;
+    color: var(--accent); font-family: var(--mono); font-size: 10px;
+  }
+  .decision-path { color: var(--ink); }
+  .decision-path .reject { color: var(--faint); text-decoration: line-through; text-decoration-thickness: 1px; }
 
-  .files { display: flex; flex-direction: column; }
-  .file { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px 20px; padding: 13px 0; border-top: 1px solid var(--hair); }
-  .file:last-child { border-bottom: 1px solid var(--hair); }
-  .file .path { font-family: var(--mono); font-size: 12.5px; color: var(--ink); overflow-wrap: anywhere; }
-  .file .path .dir { color: var(--faint); }
-  .file .right { display: flex; align-items: center; gap: 12px; }
-  .file .mini { width: 90px; height: 6px; background: var(--bar-other); position: relative; }
-  .file .mini i { position: absolute; inset: 0 auto 0 0; background: var(--accent); display: block; }
-  .file .n { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 12px; color: var(--slate); white-space: nowrap; min-width: 108px; text-align: right; }
-  .file .n b { color: var(--ink); font-weight: 600; }
+  .bridge {
+    display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--hair);
+    background: var(--hair); gap: 1px;
+  }
+  .bridge-item { padding: 24px; background: var(--card); }
+  .bridge-item .context { color: var(--accent); font-family: var(--mono); font-size: 10px; margin-bottom: 10px; }
+  .bridge-item p { margin-top: 10px; color: var(--slate); font-size: 14px; }
+  .bridge-foot {
+    margin-top: 20px; padding-left: 16px; border-left: 2px solid var(--accent);
+    color: var(--slate); font-size: 14px;
+  }
 
-  .scope-note { border-left: 2px solid var(--accent); padding: 2px 0 2px 16px; margin-bottom: 34px; max-width: var(--measure); font-size: 15px; color: var(--slate); }
-  .scope-note b { color: var(--ink); font-weight: 650; }
-  .legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-bottom: 20px; }
-  .legend span { display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 11.5px; color: var(--slate); }
-  .legend i { width: 12px; height: 12px; display: block; }
-  .legend .k1 { background: var(--accent); } .legend .k2 { background: var(--accent-mid); } .legend .k3 { background: var(--bar-other); }
-  .scope-rows { display: flex; flex-direction: column; }
-  .srow { display: grid; grid-template-columns: 128px 1fr auto; align-items: center; gap: 8px 18px; padding: 14px 0; border-top: 1px solid var(--hair); }
-  .srow:last-of-type { border-bottom: 1px solid var(--hair); }
-  .srow.total { border-top: 2px solid var(--ink); border-bottom: none; }
-  .srow.total .sname { font-weight: 700; }
-  .srow .sname { font-size: 14px; font-weight: 600; }
-  .tri { display: flex; height: 14px; overflow: hidden; min-width: 120px; }
-  .tri i { display: block; height: 100%; }
-  .tri .s1 { background: var(--accent); } .tri .s2 { background: var(--accent-mid); } .tri .s3 { background: var(--bar-other); }
-  .srow .sval { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 12px; color: var(--slate); white-space: nowrap; min-width: 96px; text-align: right; }
-  .srow .sval b { color: var(--ink); font-weight: 600; }
+  .comparison {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    border: 1px solid var(--hair); background: var(--hair);
+  }
+  .case { background: var(--card); padding: 26px; }
+  .case-head {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 14px;
+    align-items: baseline; padding-bottom: 18px; border-bottom: 1px solid var(--hair);
+  }
+  .case-industry { color: var(--accent); font-family: var(--mono); font-size: 10px; }
+  .case dl { display: flex; flex-direction: column; }
+  .case dt {
+    padding-top: 15px; color: var(--faint); font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.08em;
+  }
+  .case dd {
+    padding: 4px 0 15px; border-bottom: 1px solid var(--hair);
+    color: var(--slate); font-size: 13.5px;
+  }
+  .case dd b { color: var(--ink); }
+  .status {
+    display: inline-flex; margin-top: 16px; padding: 4px 7px;
+    border: 1px solid var(--accent); color: var(--accent);
+    font-family: var(--mono); font-size: 10px;
+  }
 
-  .docs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
-  .doc { background: var(--card); padding: 20px; display: flex; flex-direction: column; gap: 7px; }
-  .doc .dt { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-  .doc .dname { font-family: var(--mono); font-size: 12px; color: var(--accent); overflow-wrap: anywhere; }
-  .doc .dlines { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 11px; color: var(--faint); white-space: nowrap; }
-  .doc .dwhat { font-size: 14px; color: var(--slate); line-height: 1.55; }
-  .doc .dwhat b { color: var(--ink); font-weight: 650; }
+  .breakpoint {
+    display: grid; grid-template-columns: 0.5fr 1fr 1fr; margin-top: 16px;
+    border: 1px solid var(--hair); background: var(--card);
+  }
+  .breakpoint > div { padding: 20px; border-right: 1px solid var(--hair); }
+  .breakpoint > div:last-child { border-right: none; }
+  .breakpoint .bp-label { color: var(--accent); font-family: var(--mono); font-size: 10px; }
+  .breakpoint p { margin-top: 8px; color: var(--slate); font-size: 13px; }
 
-  .seo-framework { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--hair); background: var(--hair); gap: 1px; }
-  .seo-phase { background: var(--card); padding: 22px 18px; min-height: 188px; }
-  .seo-phase .phase-no { font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 20px; }
-  .seo-phase h3 { margin-bottom: 9px; }
-  .seo-phase p { font-size: 13.5px; color: var(--slate); line-height: 1.55; }
-  .seo-capabilities { margin-top: 32px; display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--hair); }
-  .seo-cap { display: grid; grid-template-columns: minmax(150px, 0.7fr) 1.3fr; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--hair); }
-  .seo-cap:nth-child(odd) { padding-right: 24px; }
-  .seo-cap:nth-child(even) { border-left: 1px solid var(--hair); padding-left: 24px; }
-  .seo-cap h3 { font-family: var(--mono); font-size: 12px; color: var(--accent); }
-  .seo-cap p { font-size: 13.5px; color: var(--slate); line-height: 1.55; }
-  .seo-cases { margin-top: 44px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; border: 1px solid var(--hair); background: var(--hair); }
-  .seo-case { background: var(--card); padding: 24px; }
-  .seo-case-head { display: flex; flex-wrap: wrap; gap: 9px 14px; align-items: baseline; padding-bottom: 18px; border-bottom: 1px solid var(--hair); }
-  .seo-case-head .status { margin-left: auto; font-family: var(--mono); font-size: 10px; line-height: 1.3; color: var(--accent); border: 1px solid var(--accent); padding: 4px 7px; white-space: nowrap; }
-  .case-logic { display: flex; flex-direction: column; }
-  .case-logic dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; color: var(--faint); text-transform: uppercase; padding-top: 14px; margin-bottom: 5px; }
-  .case-logic dd { font-size: 13.5px; line-height: 1.6; color: var(--slate); padding-bottom: 14px; border-bottom: 1px solid var(--hair); }
-  .case-logic dd b { color: var(--ink); font-weight: 650; }
-  .seo-evidence { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; }
-  .seo-evidence p { max-width: 680px; color: var(--slate); font-size: 14px; }
-  .seo-evidence p b { color: var(--ink); font-weight: 650; }
-  .doc-link { display: inline-flex; align-items: center; min-height: 38px; padding: 7px 12px; border: 1px solid var(--accent); color: var(--accent); font-family: var(--mono); font-size: 11.5px; text-decoration: none; white-space: nowrap; }
+  .pattern-block { margin-top: 42px; }
+  .pattern-block > h3 { margin-bottom: 8px; }
+  .pattern-block > p { max-width: var(--measure); color: var(--slate); font-size: 14px; }
+  .patterns {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    margin-top: 20px; border: 1px solid var(--hair); background: var(--hair);
+  }
+  .pattern { min-height: 220px; padding: 22px; background: var(--card); }
+  .pattern .pn { color: var(--accent); font-family: var(--mono); font-size: 10px; }
+  .pattern h4 { margin-top: 24px; }
+  .pattern p { margin-top: 9px; color: var(--slate); font-size: 13px; }
+
+  .evidence-method {
+    display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 16px; margin-top: 16px;
+  }
+  .evidence-box, .method-box { padding: 24px; border: 1px solid var(--hair); background: var(--card); }
+  .evidence-item {
+    padding: 13px 0; border-top: 1px solid var(--hair);
+  }
+  .evidence-item:last-of-type { border-bottom: 1px solid var(--hair); }
+  .evidence-item .state { color: var(--accent); font-family: var(--mono); font-size: 10px; }
+  .evidence-item p { margin-top: 4px; color: var(--slate); font-size: 13px; }
+  .evidence-item a { color: var(--accent); text-underline-offset: 3px; }
+  .method-list { list-style: none; }
+  .method-list li {
+    display: grid; grid-template-columns: 34px 1fr; gap: 10px;
+    padding: 11px 0; border-top: 1px solid var(--hair);
+  }
+  .method-list li:last-child { border-bottom: 1px solid var(--hair); }
+  .method-list .mn { color: var(--accent); font-family: var(--mono); font-size: 10px; padding-top: 2px; }
+  .method-list p { color: var(--slate); font-size: 13px; }
+  .doc-link {
+    display: inline-flex; align-items: center; min-height: 38px; margin-top: 18px;
+    padding: 7px 11px; border: 1px solid var(--accent); color: var(--accent);
+    font-family: var(--mono); font-size: 11px; text-decoration: none;
+  }
   .doc-link:hover { background: var(--accent); color: #fff; }
 
-  .tl-scroll { overflow-x: auto; padding-bottom: 8px; }
-  .tl { display: flex; align-items: flex-end; gap: 5px; height: 150px; min-width: 620px; }
-  .tl .m { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; height: 100%; }
-  .tl .b { width: 100%; background: var(--accent-soft); border-top: 2px solid var(--accent); min-height: 2px; }
-  .tl .b.peak { background: var(--accent); }
-  .tl .lab { font-family: var(--mono); font-size: 9px; color: var(--faint); writing-mode: vertical-rl; }
-  .tl-note { margin-top: 16px; font-size: 14px; color: var(--slate); max-width: var(--measure); }
-  .tl-note b { color: var(--ink); font-weight: 650; }
-
-  .method { background: var(--card); border: 1px solid var(--hair); padding: 26px 24px; }
-  .method h3 { margin-bottom: 12px; }
-  .method ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .method li { font-size: 14px; color: var(--slate); line-height: 1.6; padding-left: 18px; position: relative; max-width: var(--measure); }
-  .method li::before { content: "—"; position: absolute; left: 0; color: var(--faint); font-family: var(--mono); }
-  .method li b { color: var(--ink); font-weight: 650; }
-  .method code { background: var(--accent-soft); color: var(--accent); padding: 1px 5px; border-radius: 2px; }
-
-  footer { padding: 44px 0 0; font-family: var(--mono); font-size: 11.5px; color: var(--faint); line-height: 1.8; }
-
-  @media (max-width: 620px) {
-    body { padding: 0 18px 80px; }
-    header.mast { padding-top: 56px; }
-    .proj-top .when { margin-left: 0; width: 100%; }
-    .file { grid-template-columns: 1fr; }
-    .file .right { justify-content: space-between; }
-    .file .n { text-align: left; }
-    .srow { grid-template-columns: 1fr auto; gap: 8px 12px; }
-    .srow .tri { grid-column: 1 / -1; grid-row: 2; }
-    .srow .sval { grid-column: 2; grid-row: 1; }
-    .seo-framework, .seo-cases { grid-template-columns: 1fr; }
-    .seo-phase { min-height: auto; }
-    .seo-capabilities { grid-template-columns: 1fr; }
-    .seo-cap { grid-template-columns: 1fr; gap: 6px; }
-    .seo-cap:nth-child(odd) { padding-right: 0; }
-    .seo-cap:nth-child(even) { border-left: none; padding-left: 0; }
-    .seo-case-head .status { margin-left: 0; }
+  .ai-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    border: 1px solid var(--hair); background: var(--hair);
   }
+  .ai-rule { min-height: 265px; padding: 24px; background: var(--card); }
+  .ai-rule .rule-no { color: var(--accent); font-family: var(--mono); font-size: 10px; }
+  .ai-rule h3 { margin-top: 26px; }
+  .ai-rule p { margin-top: 12px; color: var(--slate); font-size: 13.5px; }
+  .ai-rule .evidence {
+    margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--hair);
+    color: var(--faint); font-family: var(--mono); font-size: 10.5px; line-height: 1.6;
+  }
+  .red-flags {
+    display: flex; flex-wrap: wrap; gap: 7px; margin-top: 22px;
+  }
+  .red-flags span {
+    padding: 5px 8px; border: 1px solid var(--hair);
+    color: var(--slate); font-family: var(--mono); font-size: 10px;
+  }
+
+  footer {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px;
+    padding-top: 38px; color: var(--faint); font-family: var(--mono);
+    font-size: 10.5px; line-height: 1.8;
+  }
+  footer a { color: var(--accent); text-underline-offset: 3px; }
+
+  @media (max-width: 820px) {
+    .plate-grid, .proof-decisions, .evidence-method { grid-template-columns: 1fr; }
+    .patterns, .ai-grid { grid-template-columns: 1fr; }
+    .pattern, .ai-rule { min-height: auto; }
+  }
+
+  @media (max-width: 680px) {
+    body { padding: 0 18px 72px; }
+    .mast { padding-top: 58px; }
+    .structure-nav { grid-template-columns: 1fr 1fr; }
+    .structure-nav a:nth-child(odd) { border-left: 1px solid var(--hair); }
+    .chapter { padding: 58px 0; }
+    .chapter-head { grid-template-columns: 1fr; gap: 8px; }
+    .chapter-no { padding-top: 0; }
+    .problem { grid-template-columns: 1fr; gap: 12px; padding: 22px; }
+    .plate { padding: 18px; }
+    .before-after { grid-template-columns: 1fr; }
+    .change-arrow { min-height: 28px; transform: rotate(90deg); }
+    .flow { flex-direction: column; }
+    .flow-arrow { justify-content: center; transform: rotate(90deg); }
+    .flow-node { min-height: 58px; }
+    .arch-layer { grid-template-columns: 1fr; gap: 7px; }
+    .arch-link { margin-left: 20px; }
+    .bridge, .comparison { grid-template-columns: 1fr; }
+    .breakpoint { grid-template-columns: 1fr; }
+    .breakpoint > div { border-right: none; border-bottom: 1px solid var(--hair); }
+    .breakpoint > div:last-child { border-bottom: none; }
+    .plate-note { display: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
     .skip-link { transition: none; }
   }
 </style>
@@ -281,336 +443,306 @@
 <a class="skip-link" href="#content">본문 바로가기</a>
 <div class="wrap">
 
-  <header class="mast">
-    <div class="eyebrow">Frontend · Web Publishing · Project Lead</div>
-    <h1>차호근</h1>
-    <p class="role">
-      오비맥주(ABI) 브랜드 웹 <b>6개 프로젝트</b>를 프론트엔드 리드 겸 PL/PM으로 수행하며 <b>5명의 팀</b>을 이끌었고,
-      그 밖에 카카오 커머스용 <b>카드 렌더링 도구를 혼자 풀스택으로</b> 만들었습니다.
-      아래 ABI 수치는 전부 <b>6개 저장소의 실제 git 이력</b>에서 뽑았습니다 — 자기평가가 아니라 커밋과 blame이 증명하는 기록입니다.
+  <header class="mast" id="positioning">
+    <div class="eyebrow">Cha Hogeun · Portfolio</div>
+    <h1>구조를 읽는 사람이고,<br>그 구조를 직접 만듭니다.</h1>
+    <p class="positioning">
+      <strong>17년 디자인 실무</strong>를 기반으로 영상·퍼블리싱에서 출발해,
+      사내 시스템 구축과 GEO 전략까지 업무를 확장해왔습니다.
+      콘텐츠 구조, 시스템 구조, 코드 구조 — 세 층위를 한 사람 안에서 연결하는 것이 강점입니다.
     </p>
-    <div class="meta-row">
-      <span><b>기간</b> &nbsp;2025.03 — 2026.07 (17개월)</span>
-      <span><b>저장소</b> &nbsp;Azure DevOps · 6개</span>
-      <span><b>스택</b> &nbsp;PHP · CSS · JavaScript · Node</span>
+    <div class="mast-meta">
+      <span>DESIGN → PUBLISHING → SYSTEM</span>
+      <span>FRONTEND → SEO/GEO</span>
+      <span>SEOUL · 2026</span>
     </div>
   </header>
 
+  <nav class="structure-nav" aria-label="포트폴리오 목차">
+    <a href="#positioning"><span class="n">00</span>포지셔닝</a>
+    <a href="#pui-x"><span class="n">01</span>PUI-X 시스템</a>
+    <a href="#frontend"><span class="n">02</span>프론트엔드 구조</a>
+    <a href="#seo-geo"><span class="n">03</span>SEO / GEO</a>
+    <a href="#ai-method"><span class="n">04</span>AI 협업 방법론</a>
+  </nav>
+
   <main id="content">
 
-  <section>
-    <div class="sec-head">
-      <div class="eyebrow">한눈에</div>
-      <h2>지금 서비스 중인 코드 52,611줄이 내 손에서 나왔습니다</h2>
-      <p>"누적 작성량"이 아니라 <strong>현재 운영 코드베이스에 살아있는 줄 수</strong>입니다. 같은 파일을 여러 번 고친 걸 중복으로 세지 않았고, 남이 덮어쓴 줄은 제외했습니다.</p>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="v">52,611</div><div class="k">내가 직접 쓴 코드 — 지금 서비스 중 (줄)</div></div>
-      <div class="stat"><div class="v">510</div><div class="k">내 커밋 — 전체 1,503개 중 <span class="num">34%</span></div></div>
-      <div class="stat"><div class="v">52</div><div class="k">사실상 단독 저자 파일 (소유율 80%+)</div></div>
-      <div class="stat"><div class="v">944</div><div class="k">내가 직접 쓰거나 <b style="font-weight:650">리드한</b> 커밋 — 전체의 <span class="num">63%</span></div></div>
-    </div>
-  </section>
-
-  <section id="seo-geo" aria-labelledby="seo-geo-title">
-    <div class="sec-head">
-      <div class="eyebrow">검색 경험 설계 — SEO · GEO · AEO</div>
-      <h2 id="seo-geo-title">검색엔진과 답변엔진이 이해할 수 있는 화면까지 설계합니다</h2>
-      <p>검색 최적화를 키워드 삽입으로 한정하지 않습니다. <strong>수집 가능한 코드, 논리적인 문서 구조, 명시적인 entity 정보, 질문에 바로 답하는 콘텐츠</strong>를 하나의 프론트엔드 산출물로 다룹니다.</p>
-    </div>
-
-    <p class="scope-note"><b>성과 표기 원칙.</b> 아래는 작업 방식과 적용 경험의 범위입니다. 검색 순위·트래픽·전환·AI 답변 인용 수치는 확인 자료가 없으므로 만들지 않았고, Pure Gold와 한맥은 <b>성과 미기재 사례 후보</b>로 구분했습니다.</p>
-
-    <div class="seo-framework">
-      <article class="seo-phase">
-        <div class="phase-no">01 / PROBLEM</div>
-        <h3>해석을 막는 문제 정의</h3>
-        <p>렌더링, 중복 URL, heading, 검색 의도, 브랜드·제품 정보의 모호함을 코드와 콘텐츠 양쪽에서 찾습니다.</p>
-      </article>
-      <article class="seo-phase">
-        <div class="phase-no">02 / STRATEGY</div>
-        <h3>질문과 entity 설계</h3>
-        <p>페이지의 대표 의도와 답해야 할 질문을 정하고, 브랜드·제품·운영 주체의 관계를 명시적인 문장으로 설계합니다.</p>
-      </article>
-      <article class="seo-phase">
-        <div class="phase-no">03 / APPLY</div>
-        <h3>HTML과 콘텐츠에 적용</h3>
-        <p>semantic HTML, title·description·canonical·OG, JSON-LD, 내부 링크, 결론 우선 Q&amp;A를 같은 구조로 구현합니다.</p>
-      </article>
-      <article class="seo-phase">
-        <div class="phase-no">04 / VERIFY</div>
-        <h3>적용과 성과를 분리</h3>
-        <p>배포 HTML, schema 검사, 색인 보고서, 실제 질문 세트로 검증하고 데이터가 있을 때만 변화와 성과를 기록합니다.</p>
-      </article>
-    </div>
-
-    <div class="seo-capabilities">
-      <article class="seo-cap"><h3>TECHNICAL SEO</h3><p>크롤링·색인·렌더링·내부 링크·상태 코드·canonical을 점검해 핵심 콘텐츠가 대표 URL에서 읽히게 합니다.</p></article>
-      <article class="seo-cap"><h3>SEMANTIC HTML</h3><p>landmark와 H1–H3 계층을 화면의 정보 구조와 맞추고, 링크·버튼·이미지의 의미를 코드에 남깁니다.</p></article>
-      <article class="seo-cap"><h3>META · OG</h3><p>페이지 의도별 고유 title과 description, 공유 맥락이 이어지는 OG 정보, 일관된 대표 URL 정책을 적용합니다.</p></article>
-      <article class="seo-cap"><h3>SCHEMA.ORG</h3><p>화면에 보이는 기업·브랜드·제품·문서 정보를 JSON-LD로 연결하고 실제 콘텐츠와의 일치 여부를 검증합니다.</p></article>
-      <article class="seo-cap"><h3>INTENT · FAQ</h3><p>사용자의 검색 의도에 맞춰 본문 순서를 다시 잡고, 실제 질문에 짧은 답과 상세 근거가 이어지는 FAQ를 설계합니다.</p></article>
-      <article class="seo-cap"><h3>GEO · AEO</h3><p>질문 하나에 답 하나, 결론 우선 문장, 명확한 entity와 출처를 사용해 독립적으로 이해·인용 가능한 단락을 만듭니다.</p></article>
-    </div>
-
-    <div class="seo-cases">
-      <article class="seo-case">
-        <div class="seo-case-head"><h3>Pure Gold</h3><span class="status">사례 후보 · 성과 미기재</span></div>
-        <dl class="case-logic">
-          <dt>문제</dt><dd>제품 설명이 기능·캠페인 문구에 흩어지면 기본 질문과 제품 entity가 한눈에 연결되지 않을 수 있습니다.</dd>
-          <dt>전략</dt><dd><b>What → Why → How → FAQ</b> 순서로 제품 정의, 필요성, 이용 방식, 남은 질문을 해소합니다.</dd>
-          <dt>적용</dt><dd>각 장을 독립적인 답변 단위로 만들고 제품명·카테고리·핵심 특성을 본문과 메타데이터에서 일관되게 표현하는 구조입니다.</dd>
-          <dt>검증 / 결과</dt><dd>정보 구조 경험만 사례 후보로 기록했습니다. 배포 URL과 전후 데이터가 연결되기 전까지 순위·트래픽·전환 성과를 쓰지 않습니다.</dd>
-        </dl>
-      </article>
-
-      <article class="seo-case">
-        <div class="seo-case-head"><h3>한맥 (HANMAC)</h3><span class="status">AEO 후보 · 성과 미기재</span></div>
-        <dl class="case-logic">
-          <dt>문제</dt><dd>감성 카피 중심의 브랜드 콘텐츠만으로는 사용자의 구체적인 질문에 직접 답하기 어렵습니다.</dd>
-          <dt>전략</dt><dd>사용자의 표현을 질문 heading으로 만들고 <b>첫 문장에 답한 뒤</b> 상세 설명과 다음 행동을 연결합니다.</dd>
-          <dt>적용</dt><dd>질문별 section, 결론 우선 답변, 명시적인 브랜드·제품명, 관련 페이지 내부 링크로 질문형 콘텐츠 경험을 재구성합니다.</dd>
-          <dt>검증 / 결과</dt><dd>질문형 콘텐츠 경험을 AEO 관점의 사례 후보로 사용합니다. 실제 적용 범위와 검색·답변 노출 효과는 확인 전까지 성과로 표현하지 않습니다.</dd>
-        </dl>
-      </article>
-    </div>
-
-    <div class="seo-evidence">
-      <p><b>확인 가능한 적용 경험:</b> OB 기업 사이트의 영문 다국어 전환과 Schema.org 구조화 데이터 적용은 기존 프로젝트 이력에 기록했습니다. 리치 결과 노출이나 순위 성과는 별도 근거가 없어 기재하지 않았습니다.</p>
-      <a class="doc-link" href="https://github.com/nonexpertchassi-creator/portfolio/blob/main/docs/seo-geo.md" target="_blank" rel="noopener">상세 SEO/GEO 문서 보기 ↗</a>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <div class="eyebrow">역할의 증거</div>
-      <h2>프론트엔드 전문성 — 코드가 직접 말합니다</h2>
-      <p>내 커밋이 건드린 모든 파일을 분류한 결과입니다. 백엔드 로직에는 사실상 손대지 않았고, 기여의 거의 전부가 <strong>화면·스타일·인터랙션</strong>에 집중돼 있습니다.</p>
-    </div>
-    <div class="split" role="img" aria-label="프론트엔드 99.8퍼센트, 백엔드 0.2퍼센트">
-      <div class="seg front">프론트엔드 &nbsp;99.8%</div>
-      <div class="seg back">0.2%</div>
-    </div>
-    <div class="split-key"><span>화면 · 스타일 · 인터랙션</span><span>백엔드 로직</span></div>
-    <div class="breakdown">
-      <div class="bd"><div class="v">30,913</div><div class="k">PHP 화면 (뷰 · 템플릿)</div></div>
-      <div class="bd"><div class="v">16,567</div><div class="k">CSS · 스타일</div></div>
-      <div class="bd"><div class="v">5,131</div><div class="k">JavaScript</div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <div class="eyebrow">프로젝트 원장 — 6개 전부 PL / PM</div>
-      <h2>맡은 6개 프로젝트</h2>
-      <p>막대는 각 저장소에서 <strong>지금 살아있는 코드 중 내 비중</strong>입니다. 레거시가 큰 저장소일수록 비중은 낮아지지만, 신규로 만든 영역은 대부분 내 코드입니다.</p>
-    </div>
-    <div class="ledger">
-
-      <article class="proj">
-        <div class="proj-top"><h3>카스 커넥트 — 블루패스</h3><span class="rank">커밋 2위 · 147</span><span class="when">2026.01 — 2026.06 · 5/18 런칭</span></div>
-        <div class="own"><div class="track"><div class="fill" style="width:12.4%"></div></div><div class="lab"><b>15,435</b> / 124,199줄 · <b>12.4%</b> · 61개 파일</div></div>
-        <p class="proj-work"><b>0에서 만든 신규 서비스.</b> 영수증 업로드 위자드, 스탬프·보너스 미션, 경품 응모, 마이페이지, 출석체크, 고객센터 FAQ, 바텀 내비게이션까지 사용자 화면 전체를 퍼블리싱했습니다. <code>home.css</code> · <code>base.css</code> · <code>event.css</code> 는 소유율 100%.</p>
-        <figure class="shot"><a href="https://connect.cass.co.kr/bluepass" target="_blank" rel="noopener"><img src="https://connect.cass.co.kr/resources/bluepass/images/common/cass-connect-og-image.jpg" alt="카스 커넥트 블루패스 화면" loading="lazy" onerror="this.closest('.shot').remove()"></a><figcaption><a href="https://connect.cass.co.kr/bluepass" target="_blank" rel="noopener">connect.cass.co.kr/bluepass ↗</a></figcaption></figure>
-      </article>
-
-      <article class="proj">
-        <div class="proj-top"><h3>한맥 (HANMAC)</h3><span class="rank">커밋 1위 · 194</span><span class="when">2025.03 — 2026.07 · 최장 17개월</span></div>
-        <div class="own"><div class="track"><div class="fill" style="width:13.7%"></div></div><div class="lab"><b>10,397</b> / 75,902줄 · <b>13.7%</b> · 102개 파일</div></div>
-        <p class="proj-work">가장 오래 맡은 프로젝트. <b>지도 3.0 개편</b>(필터 모달·검색·태그 스트립·마커 디자인), <b>QR 이벤트</b>(폼 인라인 검증, iOS Safari IME 버그 수정, <code>focus-visible</code> 접근성, 청소년보호법 연 나이 기준 성인 검증), 인덱스·헤더 톤앤매너 전면 개편, 디자인 토큰 체계 도입, 그리고 전임자 레거시 정리.</p>
-        <figure class="shot"><a href="https://hanmac.ob.co.kr" target="_blank" rel="noopener"><img src="https://hanmac.ob.co.kr/resources/images/common/Hanmac_thumbnail.webp" alt="한맥 화면" loading="lazy" onerror="this.closest('.shot').remove()"></a><figcaption><a href="https://hanmac.ob.co.kr" target="_blank" rel="noopener">hanmac.ob.co.kr ↗</a></figcaption></figure>
-      </article>
-
-      <article class="proj">
-        <div class="proj-top"><h3>스텔라 아르투아</h3><span class="rank plain">커밋 2위 · 19</span><span class="when">2026.02 — 2026.07</span></div>
-        <div class="own"><div class="track"><div class="fill" style="width:22.8%"></div></div><div class="lab"><b>17,116</b> / 75,072줄 · <b>22.8%</b> · 115개 파일</div></div>
-        <p class="proj-work"><b>커밋 수는 적지만 소유 코드는 가장 많습니다</b> — 페이지를 통째로 신규 제작한 커밋이 많았기 때문입니다. 캠페인 페이지 시스템, 19세 성인 인증 게이트(광고 검수 대응 로직 포함), A/B 테스트 세팅, 매장 찾기 지도를 만들었습니다. <code>map/index.php</code> 소유율 93%.</p>
-        <figure class="shot"><a href="https://www.stellaartois.co.kr" target="_blank" rel="noopener"><img src="https://www.stellaartois.co.kr/themes/stella/img/SA_logo_new.png" alt="스텔라 아르투아" loading="lazy" onerror="this.closest('.shot').remove()"></a><figcaption><a href="https://www.stellaartois.co.kr" target="_blank" rel="noopener">stellaartois.co.kr ↗</a></figcaption></figure>
-      </article>
-
-      <article class="proj">
-        <div class="proj-top"><h3>버드와이저</h3><span class="rank">커밋 1위 · 63</span><span class="when">2025.04 — 2026.07</span></div>
-        <div class="own"><div class="track"><div class="fill" style="width:6.4%"></div></div><div class="lab"><b>5,229</b> / 81,291줄 · <b>6.4%</b> · 20개 파일</div></div>
-        <p class="proj-work">이벤트·페스티벌 캠페인 전담. 2026 뮤직 페스티벌 퍼블리싱, 투모로우랜드 캠페인, 이벤트 종료 카운트다운 타이머를 만들었습니다. <b>This Calls For A Bud</b> 캠페인의 <code>script.js</code> 1,193줄은 소유율 99.5% — 사실상 단독 제작.</p>
-        <figure class="shot"><a href="https://www.budweiser.kr" target="_blank" rel="noopener"><img src="https://www.budweiser.kr/themes/budweiser/images/shareThumb2_1200x627.png" alt="버드와이저 화면" loading="lazy" onerror="this.closest('.shot').remove()"></a><figcaption><a href="https://www.budweiser.kr" target="_blank" rel="noopener">budweiser.kr ↗</a></figcaption></figure>
-      </article>
-
-      <article class="proj">
-        <div class="proj-top"><h3>미켈롭 울트라</h3><span class="rank plain">커밋 2위 · 68</span><span class="when">2025.03 — 2025.07</span></div>
-        <div class="own"><div class="track"><div class="fill" style="width:5.5%"></div></div><div class="lab"><b>1,669</b> / 30,102줄 · <b>5.5%</b> · 22개 파일</div></div>
-        <p class="proj-work"><b>울트라 홀</b> 신규 이벤트를 phase 1 라이브(7/1)까지 퍼블리싱했습니다. 선수 프로필·응원글 리스트·경품 시스템, 스마트드링크 결과 모달의 크로스브라우저 이슈 수정. <code>superior-access/style.css</code> 소유율 96.7%.</p>
-        <figure class="shot"><a href="https://www.michelobultra.co.kr" target="_blank" rel="noopener"><img src="https://www.michelobultra.co.kr/images/og_img_new.jpg" alt="미켈롭 울트라 화면" loading="lazy" onerror="this.closest('.shot').remove()"></a><figcaption><a href="https://www.michelobultra.co.kr" target="_blank" rel="noopener">michelobultra.co.kr ↗</a></figcaption></figure>
-      </article>
-
-      <article class="proj">
-        <div class="proj-top"><h3>OB 기업 사이트</h3><span class="rank plain">커밋 3위 · 19</span><span class="when">2025.09 — 2025.11</span></div>
-        <div class="own"><div class="track"><div class="fill" style="width:3.1%"></div></div><div class="lab"><b>2,765</b> / 90,018줄 · <b>3.1%</b> · 18개 파일</div></div>
-        <p class="proj-work">기업 홈페이지의 뉴스룸·미디어 라이브러리 페이지를 제작하고, <b>영문 다국어 전환</b> 기능과 Schema.org 구조화 데이터를 붙였습니다. 개인정보 처리방침 v1.0 → v1.2 (소유율 100%).</p>
-        <figure class="shot"><figcaption><a href="https://www.ob.co.kr" target="_blank" rel="noopener">www.ob.co.kr ↗</a></figcaption></figure>
-      </article>
-
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <div class="eyebrow">리드 범위 — 5명 팀 · 944커밋</div>
-      <h2>혼자 친 코드보다, 굴린 판이 큽니다</h2>
-      <p>6개 프로젝트 전부에서 PL/PM을 겸했습니다. 아래는 <strong>내 커밋</strong>과 <strong>내가 지시해 나온 팀원 5명의 커밋</strong>을 나눠 표시한 것입니다.</p>
-    </div>
-    <p class="scope-note">팀원의 커밋은 <b>내가 쓴 코드가 아닙니다.</b> 내가 방향을 잡고 지시해서 나온 결과물이라는 뜻이며, 그래서 위의 <b>52,611줄</b>(내가 직접 쓴 코드)과 <b>철저히 분리해</b> 표시합니다.</p>
-    <div class="legend">
-      <span><i class="k1"></i> 내 커밋 · 510</span>
-      <span><i class="k2"></i> 내 팀 5명 · 434</span>
-      <span><i class="k3"></i> 그 외 · 559</span>
-    </div>
-    <div class="scope-rows">
-      <div class="srow"><div class="sname">스텔라 아르투아</div><div class="tri" role="img" aria-label="내 커밋 19, 내 팀 39, 그 외 11. 나와 팀 합계 84.1%"><i class="s1" style="width:27.5%"></i><i class="s2" style="width:56.5%"></i><i class="s3" style="width:16.0%"></i></div><div class="sval"><b>84.1%</b> · 69</div></div>
-      <div class="srow"><div class="sname">버드와이저</div><div class="tri" role="img" aria-label="내 커밋 63, 내 팀 45, 그 외 46. 나와 팀 합계 70.1%"><i class="s1" style="width:40.9%"></i><i class="s2" style="width:29.2%"></i><i class="s3" style="width:29.9%"></i></div><div class="sval"><b>70.1%</b> · 154</div></div>
-      <div class="srow"><div class="sname">한맥</div><div class="tri" role="img" aria-label="내 커밋 194, 내 팀 194, 그 외 177. 나와 팀 합계 68.7%"><i class="s1" style="width:34.3%"></i><i class="s2" style="width:34.3%"></i><i class="s3" style="width:31.4%"></i></div><div class="sval"><b>68.7%</b> · 565</div></div>
-      <div class="srow"><div class="sname">미켈롭 울트라</div><div class="tri" role="img" aria-label="내 커밋 68, 내 팀 76, 그 외 72. 나와 팀 합계 66.7%"><i class="s1" style="width:31.5%"></i><i class="s2" style="width:35.2%"></i><i class="s3" style="width:33.3%"></i></div><div class="sval"><b>66.7%</b> · 216</div></div>
-      <div class="srow"><div class="sname">OB 기업 사이트</div><div class="tri" role="img" aria-label="내 커밋 19, 내 팀 65, 그 외 54. 나와 팀 합계 60.9%"><i class="s1" style="width:13.8%"></i><i class="s2" style="width:47.1%"></i><i class="s3" style="width:39.1%"></i></div><div class="sval"><b>60.9%</b> · 138</div></div>
-      <div class="srow"><div class="sname">카스 커넥트</div><div class="tri" role="img" aria-label="내 커밋 147, 내 팀 15, 그 외 199. 나와 팀 합계 44.9%"><i class="s1" style="width:40.7%"></i><i class="s2" style="width:4.2%"></i><i class="s3" style="width:55.1%"></i></div><div class="sval"><b>44.9%</b> · 361</div></div>
-      <div class="srow total"><div class="sname">전체</div><div class="tri" role="img" aria-label="전체 1503커밋 중 내 커밋 510, 내 팀 434, 그 외 559. 나와 팀 합계 62.8%"><i class="s1" style="width:33.9%"></i><i class="s2" style="width:28.9%"></i><i class="s3" style="width:37.2%"></i></div><div class="sval"><b>62.8%</b> · 1,503</div></div>
-    </div>
-    <p class="tl-note" style="margin-top:26px"><b>한맥에서 내 커밋 194 = 팀 커밋 194.</b> 직접 손으로 짜면서 동시에 같은 규모의 작업을 지시했다는 뜻입니다 — 리드가 코드에서 손을 뗀 게 아니라, 최전선에서 같이 짜면서 팀을 굴렸습니다.</p>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <div class="eyebrow">단독 저자 — 52개 파일 · 21,059줄</div>
-      <h2>남의 코드를 고친 게 아니라, 내가 만든 것</h2>
-      <p>소유율 <strong>80% 이상</strong>인 파일만 추렸습니다. 처음부터 끝까지 직접 만들고 유지한 파일들입니다.</p>
-    </div>
-    <div class="files">
-      <div class="file"><div class="path"><span class="dir">newstella / map /</span> index2.php</div><div class="right"><div class="mini" role="img" aria-label="소유율 99.3%"><i style="width:99.3%"></i></div><div class="n"><b>1,230</b>줄 · 99.3%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">newstella / map /</span> index.php</div><div class="right"><div class="mini" role="img" aria-label="소유율 93.0%"><i style="width:93%"></i></div><div class="n"><b>1,217</b>줄 · 93.0%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">budweiser / event / thiscallsforabud / js /</span> script.js</div><div class="right"><div class="mini" role="img" aria-label="소유율 99.5%"><i style="width:99.5%"></i></div><div class="n"><b>1,193</b>줄 · 99.5%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">cassconnect / bluepass / css /</span> stamp.css</div><div class="right"><div class="mini" role="img" aria-label="소유율 92.4%"><i style="width:92.4%"></i></div><div class="n"><b>991</b>줄 · 92.4%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">newstella / js /</span> product.js</div><div class="right"><div class="mini" role="img" aria-label="소유율 87.6%"><i style="width:87.6%"></i></div><div class="n"><b>746</b>줄 · 87.6%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">cassconnect / bluepass / css /</span> receipt.css</div><div class="right"><div class="mini" role="img" aria-label="소유율 90.5%"><i style="width:90.5%"></i></div><div class="n"><b>650</b>줄 · 90.5%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">hanmac / 2026QRevent /</span> index.php</div><div class="right"><div class="mini" role="img" aria-label="소유율 83.7%"><i style="width:83.7%"></i></div><div class="n"><b>648</b>줄 · 83.7%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">cassconnect / bluepass / css /</span> home.css</div><div class="right"><div class="mini" role="img" aria-label="소유율 100%"><i style="width:100%"></i></div><div class="n"><b>641</b>줄 · 100%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">michelobultra / superior-access / css /</span> style.css</div><div class="right"><div class="mini" role="img" aria-label="소유율 96.7%"><i style="width:96.7%"></i></div><div class="n"><b>635</b>줄 · 96.7%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">cassconnect / resources / common / css /</span> base.css</div><div class="right"><div class="mini" role="img" aria-label="소유율 100%"><i style="width:100%"></i></div><div class="n"><b>616</b>줄 · 100%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">cassconnect / bluepass / css /</span> event.css</div><div class="right"><div class="mini" role="img" aria-label="소유율 97.2%"><i style="width:97.2%"></i></div><div class="n"><b>615</b>줄 · 97.2%</div></div></div>
-      <div class="file"><div class="path"><span class="dir">newob / privacy /</span> v.1.2.php</div><div class="right"><div class="mini" role="img" aria-label="소유율 100%"><i style="width:100%"></i></div><div class="n"><b>543</b>줄 · 100%</div></div></div>
-    </div>
-    <p style="margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--faint)">상위 12개만 표시 · 전체 52개 파일 / 21,059줄</p>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <div class="eyebrow">리드 산출물 — 10개 문서 · 3,568줄</div>
-      <h2>코드 밖에서 한 일</h2>
-      <p>팀을 굴리려면 문서가 있어야 합니다. 리드 역할의 실체는 이것들입니다 — <strong>디자인 시스템, QA 스토리보드, 영향도 분석, 팀 컨벤션, 미팅 결정사항과 일정 관리</strong>. 개발자가 아니라 리드가 쓰는 문서입니다.</p>
-    </div>
-    <div class="docs">
-      <div class="doc"><div class="dt"><span class="dname">cass-connect-qa-storyboard.md</span><span class="dlines">729줄</span></div><div class="dwhat"><b>사람이 따라 하는 QA 스토리보드.</b> 전 페이지 접근성·디바이스·네트워크·카피까지 항목화해 QA 팀에 전달.</div></div>
-      <div class="doc"><div class="dt"><span class="dname">hanmac-2026.md</span><span class="dlines">596줄</span></div><div class="dwhat"><b>톤앤매너 개편 계획서.</b> 공통 클래스 68개를 추출해 페이지별 영향도를 매핑하고, <b>광고주 공유용 리스크 요약</b>과 WBS, BEM·SEO 컨벤션까지 명문화.</div></div>
-      <div class="doc"><div class="dt"><span class="dname">qa-ai-findings.md</span><span class="dlines">566줄</span></div><div class="dwhat">QA 발견 사항 정리 — SEO·구조화 데이터·이미지 로딩 베이스라인. 적용/미적용 <b>결정 근거</b>까지 기록.</div></div>
-      <div class="doc"><div class="dt"><span class="dname">BLUEPASS.md</span><span class="dlines">429줄</span></div><div class="dwhat"><b>블루패스 프로젝트 정의서.</b> 서비스 플로우, 페이지·모달 인벤토리, 미팅 결정사항, <b>정책 변경 이력</b>, 액션 아이템, 일정.</div></div>
-      <div class="doc"><div class="dt"><span class="dname">DESIGN-TOKENS.md</span><span class="dlines">358줄</span></div><div class="dwhat">디자인 시스템 초안. 흩어진 골드 5종을 찾아내 통합 제안하는 등 <b>색·타이포·간격을 토큰화</b>.</div></div>
-      <div class="doc"><div class="dt"><span class="dname">CAMPAIGN_PAGE_RULES.md</span><span class="dlines">350줄</span></div><div class="dwhat">디자이너·퍼블리셔 <b>협업 규칙</b>. 소스 코드에서 실제 적용값을 역추출해 문서화.</div></div>
-      <div class="doc"><div class="dt"><span class="dname">cass-connect-figma-page-blueprint.md</span><span class="dlines">222줄</span></div><div class="dwhat">Figma 디자인 시스템 페이지 구성안 — 코드의 실제 값을 디자인 툴로 되돌리는 설계.</div></div>
-      <div class="doc"><div class="dt"><span class="dname">cass-connect-design-system.md</span><span class="dlines">147줄</span></div><div class="dwhat">버튼 등 컴포넌트 인벤토리를 페이지별로 전수 조사.</div></div>
-      <div class="doc"><div class="dt"><span class="dname">CLEANUP-LOG.md</span><span class="dlines">135줄</span></div><div class="dwhat"><b>레거시 정리 로그.</b> 참조 카운팅으로 죽은 코드 클러스터를 추적해 삭제하고, 사유·영향도·복원 절차를 전부 기록.</div></div>
-      <div class="doc"><div class="dt"><span class="dname">MAP3.0-BLUEPRINT.md</span><span class="dlines">36줄</span></div><div class="dwhat">지도 3.0 아키텍처 블루프린트 — 현행 구조, 알려진 버그, 테크팀 협의 사항.</div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <div class="eyebrow">활동 — 월별 커밋 (내 커밋)</div>
-      <h2>17개월, 510커밋</h2>
-    </div>
-    <div class="tl-scroll">
-      <div class="tl" role="img" aria-label="2025년 3월부터 2026년 7월까지 월별 커밋 수. 2026년 5월이 133커밋으로 최고치.">
-        <div class="m"><div class="b" style="height:47%"></div><div class="lab">25.03</div></div>
-        <div class="m"><div class="b" style="height:30%"></div><div class="lab">04</div></div>
-        <div class="m"><div class="b" style="height:17%"></div><div class="lab">05</div></div>
-        <div class="m"><div class="b" style="height:32%"></div><div class="lab">06</div></div>
-        <div class="m"><div class="b" style="height:29%"></div><div class="lab">07</div></div>
-        <div class="m"><div class="b" style="height:15%"></div><div class="lab">08</div></div>
-        <div class="m"><div class="b" style="height:29%"></div><div class="lab">09</div></div>
-        <div class="m"><div class="b" style="height:5%"></div><div class="lab">10</div></div>
-        <div class="m"><div class="b" style="height:3%"></div><div class="lab">11</div></div>
-        <div class="m"><div class="b" style="height:2%"></div><div class="lab">12</div></div>
-        <div class="m"><div class="b" style="height:10%"></div><div class="lab">26.01</div></div>
-        <div class="m"><div class="b" style="height:5%"></div><div class="lab">02</div></div>
-        <div class="m"><div class="b" style="height:7%"></div><div class="lab">03</div></div>
-        <div class="m"><div class="b" style="height:19%"></div><div class="lab">04</div></div>
-        <div class="m"><div class="b peak" style="height:100%"></div><div class="lab">05</div></div>
-        <div class="m"><div class="b" style="height:28%"></div><div class="lab">06</div></div>
-        <div class="m"><div class="b" style="height:5%"></div><div class="lab">07</div></div>
+    <section class="chapter" id="pui-x" aria-labelledby="pui-title">
+      <div class="chapter-head">
+        <div class="chapter-no">01 / SYSTEM</div>
+        <div>
+          <h2 id="pui-title">PUI-X — 사내 프로덕트 시스템</h2>
+          <div class="role-line">
+            <span><b>역할</b> 기획 · 설계 · 구현 · 배포 · 운영</span>
+            <span><b>범위</b> 단독</span>
+            <span><b>형태</b> 카카오톡 채널 카드뷰 렌더러</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <p class="tl-note"><b>2026년 5월 — 133커밋.</b> 블루패스 런칭(5/18)과 한맥 톤앤매너 개편이 겹친 달입니다. 두 프로젝트를 동시에 리드하며 한 달에 전체 커밋의 4분의 1을 냈습니다.</p>
-  </section>
 
-  <section>
-    <div class="sec-head">
-      <div class="eyebrow">그 외 프로젝트 — 개인 · 팀</div>
-      <h2>퍼블리싱 너머의 작업</h2>
-      <p>ABI가 브랜드 웹 퍼블리싱이라면, 아래 둘은 다른 축입니다 — 하나는 <strong>혼자 만든 풀스택 도구</strong>, 하나는 <strong>설계·디자인 리드</strong>. git 커밋 수로 재는 대신 역할과 규모로 표기합니다.</p>
-    </div>
-    <div class="ledger">
-
-      <article class="proj">
-        <div class="proj-top"><h3>PUI-X V2 — 카카오톡 채널 카드뷰 렌더러</h3><span class="rank">혼자 · 풀스택</span><span class="when">2026 · 바이브코딩</span></div>
-        <div class="tags">
-          <span>Node · Express</span><span>Playwright</span><span>sharp · pngjs</span><span>@imgly AI 배경제거</span><span>xlsx</span><span>archiver</span>
+      <div class="problem">
+        <div class="label">Problem definition</div>
+        <div class="problem-copy">
+          <p>동일 템플릿 40종을 수작업으로 제작·유지하던 구조였습니다. 1px 단위 수정 요청 하나가 40회의 반복 작업과 40회의 오류 가능성으로 확산됐고, 그 과정에서 발생하는 커뮤니케이션 비용이 실제 제작 시간을 넘어섰습니다.</p>
+          <p class="definition">문제를 작업량이 아니라 “수정 비용이 산출물 개수에 비례하는 구조”로 정의하고, 비례 관계 자체를 끊는 방향으로 시스템을 설계했습니다.</p>
+          <p class="clarified"><strong>커뮤니케이션 비용의 실체는 요청 전달 경로였습니다.</strong> 수정 요청이 작업 파일과 검수본 사이를 오갈 때마다 40종의 반영 여부를 다시 확인해야 했습니다.</p>
         </div>
-        <p class="proj-work"><b>필요해서 직접 만든 도구.</b> 한 상품이 여러 변형(variant)으로 노출되는 카카오 커머스 카드 <b>40장을 자동 생성·렌더·캡처</b>하는 MVP입니다. 엑셀로 상품 데이터를 일괄 입력하면 서버(Playwright)가 카드 이미지를 캡처하고, AI로 배경을 자동 제거해 PNG·ZIP으로 내보냅니다. variant 아키텍처 설계 문서·다이어그램·프레젠테이션까지 직접 작성했습니다.</p>
-        <p class="meta-line"><b>16,924줄</b> (node_modules 제외) · 기획·설계·구현·문서 <b>전부 단독</b></p>
-        <figure class="shot"><img src="img/pui.png" alt="PUI-X V2 도구 화면" loading="lazy" onerror="this.closest('.shot').remove()"><figcaption>img/pui.png — 스크린샷 추가 예정</figcaption></figure>
-      </article>
+      </div>
 
-      <article class="proj">
-        <div class="proj-top"><h3>다이렉트DB — DB손해보험 다이렉트</h3><span class="rank plain">설계 · 디자인 리드</span><span class="when">보험 상품 사이트</span></div>
-        <div class="tags">
-          <span>정보구조 설계</span><span>화면 설계</span><span>디자인</span><span>퍼블리싱 디렉션</span>
+      <div class="plates">
+        <figure class="plate">
+          <figcaption class="plate-head">
+            <span><span class="plate-no">PLATE 01</span> &nbsp; Before / After 업무 플로우</span>
+            <span class="plate-note">반복 횟수를 줄인 것이 아니라 반복이 생기는 구조를 제거</span>
+          </figcaption>
+          <div class="before-after">
+            <div class="lane">
+              <div class="lane-label"><span>BEFORE</span><span>40 outputs = 40 edits</span></div>
+              <div class="flow">
+                <div class="flow-node">수정 요청</div><span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-node risk">40회 수작업</div><span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-node">40종 검수</div><span class="flow-arrow" aria-hidden="true">↺</span>
+                <div class="flow-node risk">재작업</div>
+              </div>
+              <p class="lane-caption">산출물이 늘어날수록 <b>수정·전달·검수 비용이 함께 증가</b></p>
+            </div>
+            <div class="change-arrow" aria-hidden="true">→</div>
+            <div class="lane after">
+              <div class="lane-label"><span>AFTER</span><span>1 source → 40 variants</span></div>
+              <div class="flow">
+                <div class="flow-node">데이터 입력</div><span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-node core">자동 생성</div><span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-node">일괄 검수</div>
+              </div>
+              <p class="lane-caption">수정 기준을 데이터와 템플릿에 모아 <b>한 번의 변경으로 전파</b></p>
+            </div>
+          </div>
+        </figure>
+
+        <div class="plate-grid">
+          <figure class="plate">
+            <figcaption class="plate-head">
+              <span><span class="plate-no">PLATE 02</span> &nbsp; 시스템 구조도</span>
+              <span class="plate-note">입력 / 규칙 / 렌더링 / 출력 경계</span>
+            </figcaption>
+            <div class="architecture">
+              <div class="arch-layer">
+                <span class="arch-name">INPUT</span>
+                <div class="arch-modules"><span>Web UI</span><span>Excel · xlsx</span><span>상품 이미지</span></div>
+              </div>
+              <div class="arch-link" aria-hidden="true"></div>
+              <div class="arch-layer">
+                <span class="arch-name">APPLICATION</span>
+                <div class="arch-modules"><span>Node · Express</span><span>Variant schema</span><span>Asset matching</span></div>
+              </div>
+              <div class="arch-link" aria-hidden="true"></div>
+              <div class="arch-layer">
+                <span class="arch-name">RENDER</span>
+                <div class="arch-modules"><span>Single template</span><span>Playwright</span><span>sharp · pngjs</span></div>
+              </div>
+              <div class="arch-link" aria-hidden="true"></div>
+              <div class="arch-layer">
+                <span class="arch-name">OUTPUT</span>
+                <div class="arch-modules"><span>Preview</span><span>PNG × 40</span><span>ZIP · archiver</span></div>
+              </div>
+            </div>
+            <p class="external"><strong>외부 연동</strong> — @imgly 기반 배경 제거는 asset pipeline에만 연결해, 카드 규칙과 렌더러가 외부 처리 방식에 종속되지 않게 분리했습니다.</p>
+          </figure>
+
+          <figure class="plate">
+            <figcaption class="plate-head">
+              <span><span class="plate-no">PLATE 03</span> &nbsp; 핵심 유저플로우</span>
+              <span class="plate-note">가장 대표적인 일괄 생성 시나리오</span>
+            </figcaption>
+            <div class="user-flow">
+              <div class="user-step"><span class="sn">01</span><p><b>엑셀 업로드</b><br>상품명·가격·카피·variant 데이터를 한 번에 입력</p></div>
+              <div class="user-step"><span class="sn">02</span><p><b>자산 연결</b><br>상품 이미지 매칭과 필요 자산의 배경 제거</p></div>
+              <div class="user-step"><span class="sn">03</span><p><b>variant 미리보기</b><br>40종을 같은 규칙으로 렌더링해 화면에서 확인</p></div>
+              <div class="user-step"><span class="sn">04</span><p><b>서버 일괄 캡처</b><br>Playwright가 동일 환경에서 카드 이미지를 생성</p></div>
+              <div class="user-step"><span class="sn">05</span><p><b>검수·다운로드</b><br>오류만 수정하고 PNG 또는 ZIP으로 전달</p></div>
+            </div>
+          </figure>
         </div>
-        <p class="proj-work"><b>설계와 디자인을 담당하고 퍼블리싱을 디렉션</b>했습니다. 상품별 상세 페이지의 정보구조·화면을 설계하고 디자인을 잡았으며, 실제 마크업은 팀에 지시해 진행했습니다(백엔드 미관여). PC·모바일 반응형 보험 상품 사이트.</p>
-        <figure class="shot"><a href="https://www.directdb.co.kr" target="_blank" rel="noopener"><img src="img/db.png" alt="다이렉트DB 화면" loading="lazy" onerror="this.closest('.shot').remove()"></a><figcaption><a href="https://www.directdb.co.kr" target="_blank" rel="noopener">directdb.co.kr ↗</a></figcaption></figure>
-      </article>
+      </div>
 
-      <article class="proj">
-        <div class="proj-top"><h3>승강기 현장관리 앱 — 구일엘리베이터(주)</h3><span class="rank">공동 개발 · 기획·설계·QA</span><span class="when">2026 · 바이브코딩 · 운영 중</span></div>
-        <div class="tags">
-          <span>Next.js 16 · React 19</span><span>Supabase(PostgreSQL·RLS)</span><span>PWA · Capacitor</span><span>RAG(pgvector)</span><span>OpenAI API</span><span>알림톡·웹푸시</span>
+      <div class="proof-decisions">
+        <section class="proof" aria-labelledby="proof-title">
+          <div class="subhead"><div class="eyebrow">Operational proof</div><h3 id="proof-title">운영 증거 — 수치보다 상태</h3></div>
+          <ul class="proof-list">
+            <li><span class="proof-state">IN USE</span>2026년 배포 후 팀 운영에 사용 중</li>
+            <li><span class="proof-state">REPLACED</span>카카오 커머스 카드 40종의 수작업 제작·렌더·캡처 업무를 대체</li>
+            <li><span class="proof-state">TRANSFERRED</span>최초 제작자가 직접 관리하지 않는 현재도 운영 중</li>
+          </ul>
+        </section>
+
+        <section class="decisions" aria-labelledby="decision-title">
+          <div class="subhead"><div class="eyebrow">Decision log</div><h3 id="decision-title">비례 비용을 끊은 세 가지 선택</h3></div>
+          <ol>
+            <li><p class="decision-path"><span class="reject">40개 완성본을 각각 유지</span> → 수정 전파와 누락 검수가 그대로 40배 → <strong>하나의 템플릿 + variant schema</strong> 선택</p></li>
+            <li><p class="decision-path"><span class="reject">사용자 브라우저에서 수동 캡처</span> → 폰트·해상도·실행 환경에 따라 결과가 달라짐 → <strong>서버 Playwright 일괄 렌더링</strong> 선택</p></li>
+            <li><p class="decision-path"><span class="reject">외부 편집기에서 이미지 전처리</span> → 파일 왕복과 작업자 의존성이 남음 → <strong>배경 제거 + sharp 후처리 파이프라인</strong> 선택</p></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+
+    <section class="chapter" id="frontend" aria-labelledby="frontend-title">
+      <div class="chapter-head">
+        <div class="chapter-no">02 / BRIDGE</div>
+        <div>
+          <h2 id="frontend-title">프론트엔드 구조 설계 · 리뷰</h2>
+          <p class="chapter-intro">PUI-X를 만들 수 있었던 이유이자, SEO/GEO에서 화면과 정보 구조를 함께 다룰 수 있는 근거입니다. 퍼블리싱 실무에서 시작해 팀원의 구조를 리뷰하고 변경 영향도를 문서화하는 역할로 확장했습니다.</p>
         </div>
-        <p class="proj-work"><b>실제 회사가 매일 쓰는 업무 앱입니다.</b> 승강기 유지보수 기사와 관리자가 고장접수·자체점검·검사관리·자재/견적·비용청구·재고를 한 곳에서 처리합니다. 개발자 1명과 둘이 만들었고, 저는 <b>기획·화면설계·QA 규칙·문서화</b>를 맡으면서 <b>검사기준 Q&amp;A 챗봇, 알림톡 전환, UI/UX 개선</b>을 직접 구현했습니다. 현장 761곳·기사 계정이 붙어 운영 중입니다.</p>
-        <p class="proj-work"><b>가장 공들인 것 — 법령 검색 챗봇(RAG).</b> 승강기 안전기준은 별표 하나가 20만 자라 현장에서 찾을 수가 없습니다. 공단 법령자료 149건에서 현행본 45건을 추려 <b>조항 단위 5,036청크</b>로 자르고 임베딩해, 물어보면 <b>조항 번호·시행일과 함께</b> 답하게 만들었습니다. 키워드(정확한 조문·수치)와 벡터(현장 말투)를 <b>RRF로 합친 하이브리드 검색</b>이라 "도어대기타임" 같은 은어로 물어도 조문을 찾아냅니다. 추천 질문 345개는 법령에서 자동 생성한 뒤 <b>전부 실제로 물어보는 전수 검증</b>으로 답 못 하는 것을 걸러냈습니다.</p>
-        <p class="meta-line">소스 <b>291파일 · 2.2MB</b> · API 26 · DB 마이그레이션 137 · 컴포넌트 65<br>본인 세션 <b>771커밋</b> (본인 명의 342 + AI 페어 429) · 6주 · 설계·QA 문서 <b>129건</b></p>
-      </article>
+      </div>
 
-    </div>
-  </section>
+      <div class="bridge">
+        <article class="bridge-item">
+          <div class="context">HANMAC · STRUCTURE REVIEW</div>
+          <h3>공통 클래스 68개를 영향도 지도로 바꿨습니다</h3>
+          <p>톤앤매너 개편 전에 공통 클래스를 추출하고 페이지별 의존 관계를 매핑했습니다. BEM·SEO 컨벤션, WBS, 광고주 공유용 리스크를 한 문서에 연결해 “고치면 어디가 깨지는가”를 팀이 함께 보게 했습니다.</p>
+        </article>
+        <article class="bridge-item">
+          <div class="context">CASS CONNECT · 0→1 FRONTEND</div>
+          <h3>페이지가 아니라 서비스 흐름을 퍼블리싱했습니다</h3>
+          <p>영수증 업로드, 스탬프·미션, 응모, 마이페이지, FAQ와 내비게이션까지 사용자 화면 전체를 만들었습니다. 화면 단위보다 상태·검증·공통 CSS 경계를 먼저 잡아 신규 서비스의 뼈대를 세웠습니다.</p>
+        </article>
+      </div>
+      <p class="bridge-foot">리뷰 기준은 스타일 취향이 아니라 <strong>변경 전파 범위, semantic structure, 상태와 검증, 접근성, 크로스브라우저 영향</strong>입니다.</p>
+    </section>
 
-  <section style="border-bottom:none">
-    <div class="sec-head">
-      <div class="eyebrow">측정 방법</div>
-      <h2>이 숫자를 어떻게 뽑았나</h2>
-    </div>
-    <div class="method">
-      <h3>부풀리지 않기 위해 정한 규칙</h3>
-      <ul>
-        <li><b>"누적 작성 줄"을 쓰지 않았습니다.</b> 한 파일을 37번 커밋하면 추가 줄이 매번 더해져 실제보다 3배 가까이 부풀려집니다. 대신 <code>git blame</code>으로 <b>지금 코드베이스에 살아있는 줄</b>만 셌습니다. 그래서 146,000줄이 아니라 <b>52,611줄</b>입니다.</li>
-        <li><b>내 것이 아닌 코드는 전부 뺐습니다.</b> <code>vendor/</code>, <code>node_modules/</code>, 백업 폴더, jQuery·Bootstrap 같은 라이브러리, 데이터 파일(JSON·HTML 덤프)은 집계에서 제외했습니다.</li>
-        <li><b>흩어진 커밋 계정을 합쳤습니다.</b> 대소문자·표기가 다른 4개 아이덴티티(<code>hogeun cha</code>, <code>hogeun.cha</code>, <code>Hogeun.cha</code>)와 개인 계정 커밋을 동일인으로 병합해 <b>510커밋</b>을 얻었습니다.</li>
-        <li><b>"리드한 커밋"과 "내가 쓴 코드"를 절대 섞지 않았습니다.</b> 944커밋은 내 510커밋 + 내가 지시한 팀원 5명의 434커밋입니다. 팀원 커밋은 <b>내가 작성한 코드가 아니며</b>, 코드 줄 수(52,611줄) 집계에는 <b>단 한 줄도 포함하지 않았습니다.</b> 내 팀이 아닌 개발자들의 커밋 559개는 전부 제외했습니다.</li>
-        <li><b>한계도 밝힙니다.</b> blame은 각 줄을 <i>마지막으로 만진</i> 사람에게 귀속시킵니다. 내가 지운 코드는 세지 않고, 남이 내 코드를 덮어쓴 줄도 빠집니다 — 즉 이 숫자는 <b>보수적으로 잡힌 하한선</b>에 가깝습니다.</li>
-        <li><b>ABI 밖 프로젝트는 다른 기준으로 표기했습니다.</b> PUI-X V2는 성격이 달라 blame 대신 총 규모(16,924줄, 단독)로, 다이렉트DB는 코드 기여가 아닌 <b>설계·디자인 리드</b> 역할이라 커밋 지표를 붙이지 않았습니다 — 숫자로 부풀리지 않기 위해서입니다. 구일엘리베이터 앱은 <b>개발자 1명과의 공동 작업</b>이라 blame 줄 수 대신 <b>본인 세션 커밋(771)과 담당 영역</b>으로 표기했고, 상대 개발자의 708커밋은 <b>제 지표에 넣지 않았습니다.</b> AI 페어 세션에서 나온 429커밋은 제가 지시·검수한 것이라 본인 세션에 포함했으나, <b>제가 직접 타이핑한 코드와는 구분해 적었습니다.</b></li>
-      </ul>
-    </div>
-  </section>
+    <section class="chapter" id="seo-geo" aria-labelledby="seo-title">
+      <div class="chapter-head">
+        <div class="chapter-no">03 / SEARCH</div>
+        <div>
+          <h2 id="seo-title">SEO / GEO — 같은 방법론이 어디서 꺾이는가</h2>
+          <p class="chapter-intro">검색엔진과 답변엔진이 이해할 수 있는 구조를 만든다는 공통점은 같지만, 주류·FMCG와 규제 산업은 “짧고 직접적인 답”을 허용하는 범위가 다릅니다. 두 케이스의 대비가 방법론의 핵심입니다.</p>
+        </div>
+      </div>
+
+      <div class="comparison">
+        <article class="case">
+          <div class="case-head"><h3>케이스 A — ABI</h3><span class="case-industry">BEER · FMCG</span></div>
+          <dl>
+            <dt>진단</dt>
+            <dd>비주얼·캠페인 중심 페이지에 <b>제품 entity, 검색 의도, 사용자의 질문에 답하는 텍스트 층</b>이 있는지 봅니다. semantic HTML, heading, meta·canonical, schema까지 같은 관점에서 확인합니다.</dd>
+            <dt>개입</dt>
+            <dd>Pure Gold의 <b>What / Why / How + FAQ</b> 구조, 한맥의 질문형 콘텐츠를 AEO 관점으로 재구성하고, OB 기업 사이트에는 Schema.org 구조화 데이터를 적용했습니다.</dd>
+            <dt>결과</dt>
+            <dd>OB의 구조화 데이터 적용은 기존 프로젝트 이력으로 확인됩니다. Pure Gold·한맥은 정보 구조 사례 후보로만 표기하며, 검색 순위·트래픽·AI 인용 성과는 근거가 없어 쓰지 않습니다.</dd>
+            <dt>원칙</dt>
+            <dd><b>브랜드 경험을 걷어내지 않고, 그 아래에 공식 답변 층을 만든다.</b></dd>
+          </dl>
+          <span class="status">구현 경험 + 성과 미기재 사례 후보</span>
+        </article>
+
+        <article class="case">
+          <div class="case-head"><h3>케이스 B — DB손해보험</h3><span class="case-industry">FINANCE · REGULATED</span></div>
+          <dl>
+            <dt>진단</dt>
+            <dd>상품 설명이 CTA에 도달하기 전에 <b>대상, 보장 범위, 조건, 제외 사항, 고지와 정보 기준</b>을 오해 없이 구분하는지 봅니다. 답변의 짧음보다 조건의 완전성이 우선입니다.</dd>
+            <dt>개입</dt>
+            <dd>보험 상품 상세의 정보 구조와 화면을 설계하고 PC·모바일 퍼블리싱을 디렉션했습니다. 제품 entity와 핵심 조건, 고지 정보를 순서대로 읽히게 하는 IA를 사용했습니다.</dd>
+            <dt>결과</dt>
+            <dd>다이렉트DB 상품 페이지의 설계·디자인·퍼블리싱 디렉션 경험은 공개할 수 있습니다. 다만 이를 GEO 노출 성과로 소급해 주장하지 않습니다.</dd>
+            <dt>원칙</dt>
+            <dd><b>규제 산업에서는 인용하기 쉬움보다 조건·예외·출처를 잃지 않는 것이 먼저다.</b></dd>
+          </dl>
+          <span class="status">정보 구조 경험 · GEO 성과 미기재</span>
+        </article>
+      </div>
+
+      <div class="breakpoint">
+        <div><span class="bp-label">SAME METHOD</span><p>질문 → entity → 직접 답 → 근거 → 다음 행동</p></div>
+        <div><span class="bp-label">ABI</span><p>짧은 제품 정의와 브랜드 경험을 먼저 연결하고, FAQ로 남은 질문을 닫습니다.</p></div>
+        <div><span class="bp-label">DB</span><p>직접 답 뒤에 조건·예외·고지·기준일이 함께 남아야 하며, 이를 줄여서 인용하지 않습니다.</p></div>
+      </div>
+
+      <div class="pattern-block">
+        <h3>제안서 수십 건에서 뽑은 패턴</h3>
+        <p>클라이언트 정보를 걷어내고 반복된 판단만 남겼습니다. “해봤다”를 넘어서 다음 프로젝트에서도 재현할 수 있는 기준입니다.</p>
+        <div class="patterns">
+          <article class="pattern">
+            <span class="pn">PATTERN 01</span>
+            <h4>반복적으로 확인된 진단</h4>
+            <p>브랜드 페이지는 시각 자산은 강하지만, 공식 제품 정의·대상·차이·이용 방법이 독립적으로 인용 가능한 문장으로 남지 않는 경우가 많았습니다.</p>
+          </article>
+          <article class="pattern">
+            <span class="pn">PATTERN 02</span>
+            <h4>업종별 우선순위의 분기</h4>
+            <p>FMCG는 제품 entity와 경험·FAQ가 먼저이고, 금융은 조건·예외·출처·기준일과 승인된 표현의 경계가 먼저입니다.</p>
+          </article>
+          <article class="pattern">
+            <span class="pn">PATTERN 03</span>
+            <h4>통과와 무산의 차이</h4>
+            <p>통과 가능성이 높은 제안은 목표 질문, 바꿀 컴포넌트, 공개 가능한 검증 방식을 연결했습니다. “AI 노출 강화”처럼 통제 대상과 증거가 없는 제안은 실행 단위로 내려가지 못했습니다.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="evidence-method">
+        <section class="evidence-box" aria-labelledby="evidence-title">
+          <div class="subhead"><div class="eyebrow">Evidence</div><h3 id="evidence-title">공개 가능한 증거 설계</h3></div>
+          <div class="evidence-item"><span class="state">BEFORE / AFTER</span><p>같은 질문·모델·날짜 조건으로 LLM 답변을 캡처하고, entity 식별·핵심 답·공식 출처 연결만 비교합니다.</p></div>
+          <div class="evidence-item"><span class="state">OWNED ASSET</span><p>PUI-X와 이 포트폴리오에 같은 방법론을 적용해 정보 구조·메타데이터·JSON-LD를 공개 코드로 검증합니다.</p></div>
+          <div class="evidence-item"><span class="state">PUBLIC SOURCE</span><p><a href="https://github.com/nonexpertchassi-creator/portfolio" target="_blank" rel="noopener">포트폴리오 저장소 ↗</a>에서 semantic HTML, canonical과 구조화 데이터를 확인할 수 있습니다.</p></div>
+        </section>
+
+        <section class="method-box" aria-labelledby="method-title">
+          <div class="subhead"><div class="eyebrow">One-page method</div><h3 id="method-title">GEO 진단 — 다섯 단계</h3></div>
+          <ol class="method-list">
+            <li><span class="mn">01</span><p><strong>Question</strong> — 이 페이지가 직접 답해야 할 대표 질문을 한 문장으로 고정</p></li>
+            <li><span class="mn">02</span><p><strong>Entity</strong> — 정식 명칭, 운영 주체, 대상, 다른 entity와의 관계를 명시</p></li>
+            <li><span class="mn">03</span><p><strong>Evidence</strong> — 출처, 조건, 예외, 기준일을 답과 분리하지 않고 연결</p></li>
+            <li><span class="mn">04</span><p><strong>Structure</strong> — heading, 직접 답, 메타·canonical, schema와 내부 링크에 적용</p></li>
+            <li><span class="mn">05</span><p><strong>Verify</strong> — 크롤링·스키마·대표 질문을 점검하고 전후 데이터가 있을 때만 성과 표기</p></li>
+          </ol>
+          <a class="doc-link" href="https://github.com/nonexpertchassi-creator/portfolio/blob/main/docs/geo-method.md" target="_blank" rel="noopener">방법론 1페이지 보기 ↗</a>
+        </section>
+      </div>
+    </section>
+
+    <section class="chapter" id="ai-method" aria-labelledby="ai-title">
+      <div class="chapter-head">
+        <div class="chapter-no">04 / CONTROL</div>
+        <div>
+          <h2 id="ai-title">AI 협업 방법론 — 언제 믿지 않을 것인가</h2>
+          <p class="chapter-intro">툴을 나열하지 않습니다. AI가 넓은 컨텍스트에서 그럴듯한 코드를 빠르게 만드는 순간보다, 범위를 좁히고 근거를 요구하며 사람이 승인 경계를 지키는 방식을 문서화합니다.</p>
+        </div>
+      </div>
+
+      <div class="ai-grid">
+        <article class="ai-rule">
+          <span class="rule-no">RULE 01 / CONTEXT</span>
+          <h3>큰 세션을 모듈 단위로 잘랐습니다</h3>
+          <p>9,000줄 규모 세션에서 AI 제안을 그대로 수용하지 않고, 입력·규칙·렌더링·출력 모듈로 컨텍스트를 분리했습니다. 한 번에 해결할 범위를 줄이자 오류가 생긴 경계를 찾기 쉬워졌고 불필요한 토큰 소모도 함께 줄었습니다.</p>
+          <p class="evidence">증거 기준 — 한 요청은 한 모듈, 변경 파일과 책임 경계를 먼저 선언</p>
+        </article>
+        <article class="ai-rule">
+          <span class="rule-no">RULE 02 / APPROVAL</span>
+          <h3>AI가 자기 작업을 승인하지 못하게 합니다</h3>
+          <p>탐색 → 구현 → 검증을 분리합니다. 구현을 만든 대화의 설명만 믿지 않고 diff, 영향 범위, 테스트 결과, 되돌리는 방법을 사람이 확인한 뒤 다음 모듈로 넘어갑니다.</p>
+          <p class="evidence">중단 조건 — 범위 밖 파일 수정 · 이유 없는 의존성 · 삭제/마이그레이션 · 검증 없는 “완료”</p>
+        </article>
+        <article class="ai-rule">
+          <span class="rule-no">RULE 03 / EVIDENCE</span>
+          <h3>답보다 출처가 남는지를 봅니다</h3>
+          <p>승강기 법령 RAG에서는 추천 질문 345개를 실제로 전수 질의해 답하지 못하는 질문을 걸러냈습니다. 조항 번호·시행일 같은 근거가 빠진 답은 문장이 자연스러워도 통과시키지 않았습니다.</p>
+          <p class="evidence">표기 원칙 — AI 페어 결과와 직접 작성 코드를 분리하고, 검증한 범위만 본인 기여로 설명</p>
+        </article>
+      </div>
+
+      <div class="red-flags" aria-label="AI 제안을 즉시 의심하는 신호">
+        <span>CONTEXT SPILL</span><span>UNEXPLAINED DEPENDENCY</span><span>NO ROLLBACK</span>
+        <span>SELF-VERIFIED</span><span>MISSING SOURCE</span><span>HIDDEN SIDE EFFECT</span>
+      </div>
+    </section>
 
   </main>
 
   <footer>
-    출처 — Azure DevOps 6개 저장소 (ABI_HANMAC · ABI_CASSCONNECT · ABI_STELLA · ABI_BUDWEISER · ABI_MICHELOB · ABI_OB)<br>
-    집계 기준일 2026.07.14 · git log + git blame 전수 분석
+    <span>차호근 — 콘텐츠 구조 · 시스템 구조 · 코드 구조</span>
+    <span><a href="https://github.com/nonexpertchassi-creator/portfolio" target="_blank" rel="noopener">GitHub source ↗</a> · 검색 성과 수치는 검증 자료가 있을 때만 표기</span>
   </footer>
 
 </div>
