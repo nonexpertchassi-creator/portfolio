@@ -3,7 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>차호근 — 프론트엔드 포트폴리오</title>
+<title>차호근 — 프론트엔드·SEO/GEO 포트폴리오</title>
+<meta name="description" content="프론트엔드 개발·웹 퍼블리싱·프로젝트 리드 경험과 Technical SEO, GEO/AEO 정보 구조 설계 기준을 근거 중심으로 정리한 차호근의 포트폴리오입니다.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#EFEEEA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131619" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://nonexpertchassi-creator.github.io/portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="차호근 포트폴리오">
+<meta property="og:title" content="차호근 — 프론트엔드·SEO/GEO 포트폴리오">
+<meta property="og:description" content="코드 기여와 리드 경험, 검색엔진·답변엔진이 이해할 수 있는 정보 구조 설계 기준을 검증 가능한 근거와 함께 정리했습니다.">
+<meta property="og:url" content="https://nonexpertchassi-creator.github.io/portfolio/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="차호근 — 프론트엔드·SEO/GEO 포트폴리오">
+<meta name="twitter:description" content="프론트엔드·웹 퍼블리싱·프로젝트 리드와 SEO/GEO 설계 경험을 근거 중심으로 정리한 포트폴리오입니다.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://nonexpertchassi-creator.github.io/portfolio/#person",
+      "name": "차호근",
+      "url": "https://nonexpertchassi-creator.github.io/portfolio/",
+      "jobTitle": "Frontend Developer · Web Publisher · Project Lead",
+      "knowsAbout": [
+        "Frontend Development",
+        "Web Publishing",
+        "Project Leadership",
+        "Technical SEO",
+        "Semantic HTML",
+        "Structured Data",
+        "GEO",
+        "AEO"
+      ],
+      "sameAs": ["https://github.com/nonexpertchassi-creator"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nonexpertchassi-creator.github.io/portfolio/#website",
+      "url": "https://nonexpertchassi-creator.github.io/portfolio/",
+      "name": "차호근 포트폴리오",
+      "inLanguage": "ko-KR",
+      "author": { "@id": "https://nonexpertchassi-creator.github.io/portfolio/#person" }
+    }
+  ]
+}
+</script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -57,6 +104,9 @@
     padding: 0 24px 120px;
   }
   .wrap { max-width: var(--wide); margin: 0 auto; }
+  .skip-link { position: fixed; top: 12px; left: 12px; z-index: 10; background: var(--ink); color: var(--paper); padding: 8px 12px; font-family: var(--mono); font-size: 12px; text-decoration: none; transform: translateY(-180%); transition: transform 0.18s ease; }
+  .skip-link:focus { transform: translateY(0); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
   .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); }
   h1 { font-size: clamp(34px, 6vw, 54px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; text-wrap: balance; margin: 14px 0 0; }
@@ -160,6 +210,31 @@
   .doc .dwhat { font-size: 14px; color: var(--slate); line-height: 1.55; }
   .doc .dwhat b { color: var(--ink); font-weight: 650; }
 
+  .seo-framework { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--hair); background: var(--hair); gap: 1px; }
+  .seo-phase { background: var(--card); padding: 22px 18px; min-height: 188px; }
+  .seo-phase .phase-no { font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 20px; }
+  .seo-phase h3 { margin-bottom: 9px; }
+  .seo-phase p { font-size: 13.5px; color: var(--slate); line-height: 1.55; }
+  .seo-capabilities { margin-top: 32px; display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--hair); }
+  .seo-cap { display: grid; grid-template-columns: minmax(150px, 0.7fr) 1.3fr; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--hair); }
+  .seo-cap:nth-child(odd) { padding-right: 24px; }
+  .seo-cap:nth-child(even) { border-left: 1px solid var(--hair); padding-left: 24px; }
+  .seo-cap h3 { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+  .seo-cap p { font-size: 13.5px; color: var(--slate); line-height: 1.55; }
+  .seo-cases { margin-top: 44px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; border: 1px solid var(--hair); background: var(--hair); }
+  .seo-case { background: var(--card); padding: 24px; }
+  .seo-case-head { display: flex; flex-wrap: wrap; gap: 9px 14px; align-items: baseline; padding-bottom: 18px; border-bottom: 1px solid var(--hair); }
+  .seo-case-head .status { margin-left: auto; font-family: var(--mono); font-size: 10px; line-height: 1.3; color: var(--accent); border: 1px solid var(--accent); padding: 4px 7px; white-space: nowrap; }
+  .case-logic { display: flex; flex-direction: column; }
+  .case-logic dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; color: var(--faint); text-transform: uppercase; padding-top: 14px; margin-bottom: 5px; }
+  .case-logic dd { font-size: 13.5px; line-height: 1.6; color: var(--slate); padding-bottom: 14px; border-bottom: 1px solid var(--hair); }
+  .case-logic dd b { color: var(--ink); font-weight: 650; }
+  .seo-evidence { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; }
+  .seo-evidence p { max-width: 680px; color: var(--slate); font-size: 14px; }
+  .seo-evidence p b { color: var(--ink); font-weight: 650; }
+  .doc-link { display: inline-flex; align-items: center; min-height: 38px; padding: 7px 12px; border: 1px solid var(--accent); color: var(--accent); font-family: var(--mono); font-size: 11.5px; text-decoration: none; white-space: nowrap; }
+  .doc-link:hover { background: var(--accent); color: #fff; }
+
   .tl-scroll { overflow-x: auto; padding-bottom: 8px; }
   .tl { display: flex; align-items: flex-end; gap: 5px; height: 150px; min-width: 620px; }
   .tl .m { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; height: 100%; }
@@ -186,10 +261,24 @@
     .file { grid-template-columns: 1fr; }
     .file .right { justify-content: space-between; }
     .file .n { text-align: left; }
+    .srow { grid-template-columns: 1fr auto; gap: 8px 12px; }
+    .srow .tri { grid-column: 1 / -1; grid-row: 2; }
+    .srow .sval { grid-column: 2; grid-row: 1; }
+    .seo-framework, .seo-cases { grid-template-columns: 1fr; }
+    .seo-phase { min-height: auto; }
+    .seo-capabilities { grid-template-columns: 1fr; }
+    .seo-cap { grid-template-columns: 1fr; gap: 6px; }
+    .seo-cap:nth-child(odd) { padding-right: 0; }
+    .seo-cap:nth-child(even) { border-left: none; padding-left: 0; }
+    .seo-case-head .status { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skip-link { transition: none; }
   }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#content">본문 바로가기</a>
 <div class="wrap">
 
   <header class="mast">
@@ -207,6 +296,8 @@
     </div>
   </header>
 
+  <main id="content">
+
   <section>
     <div class="sec-head">
       <div class="eyebrow">한눈에</div>
@@ -218,6 +309,75 @@
       <div class="stat"><div class="v">510</div><div class="k">내 커밋 — 전체 1,503개 중 <span class="num">34%</span></div></div>
       <div class="stat"><div class="v">52</div><div class="k">사실상 단독 저자 파일 (소유율 80%+)</div></div>
       <div class="stat"><div class="v">944</div><div class="k">내가 직접 쓰거나 <b style="font-weight:650">리드한</b> 커밋 — 전체의 <span class="num">63%</span></div></div>
+    </div>
+  </section>
+
+  <section id="seo-geo" aria-labelledby="seo-geo-title">
+    <div class="sec-head">
+      <div class="eyebrow">검색 경험 설계 — SEO · GEO · AEO</div>
+      <h2 id="seo-geo-title">검색엔진과 답변엔진이 이해할 수 있는 화면까지 설계합니다</h2>
+      <p>검색 최적화를 키워드 삽입으로 한정하지 않습니다. <strong>수집 가능한 코드, 논리적인 문서 구조, 명시적인 entity 정보, 질문에 바로 답하는 콘텐츠</strong>를 하나의 프론트엔드 산출물로 다룹니다.</p>
+    </div>
+
+    <p class="scope-note"><b>성과 표기 원칙.</b> 아래는 작업 방식과 적용 경험의 범위입니다. 검색 순위·트래픽·전환·AI 답변 인용 수치는 확인 자료가 없으므로 만들지 않았고, Pure Gold와 한맥은 <b>성과 미기재 사례 후보</b>로 구분했습니다.</p>
+
+    <div class="seo-framework">
+      <article class="seo-phase">
+        <div class="phase-no">01 / PROBLEM</div>
+        <h3>해석을 막는 문제 정의</h3>
+        <p>렌더링, 중복 URL, heading, 검색 의도, 브랜드·제품 정보의 모호함을 코드와 콘텐츠 양쪽에서 찾습니다.</p>
+      </article>
+      <article class="seo-phase">
+        <div class="phase-no">02 / STRATEGY</div>
+        <h3>질문과 entity 설계</h3>
+        <p>페이지의 대표 의도와 답해야 할 질문을 정하고, 브랜드·제품·운영 주체의 관계를 명시적인 문장으로 설계합니다.</p>
+      </article>
+      <article class="seo-phase">
+        <div class="phase-no">03 / APPLY</div>
+        <h3>HTML과 콘텐츠에 적용</h3>
+        <p>semantic HTML, title·description·canonical·OG, JSON-LD, 내부 링크, 결론 우선 Q&amp;A를 같은 구조로 구현합니다.</p>
+      </article>
+      <article class="seo-phase">
+        <div class="phase-no">04 / VERIFY</div>
+        <h3>적용과 성과를 분리</h3>
+        <p>배포 HTML, schema 검사, 색인 보고서, 실제 질문 세트로 검증하고 데이터가 있을 때만 변화와 성과를 기록합니다.</p>
+      </article>
+    </div>
+
+    <div class="seo-capabilities">
+      <article class="seo-cap"><h3>TECHNICAL SEO</h3><p>크롤링·색인·렌더링·내부 링크·상태 코드·canonical을 점검해 핵심 콘텐츠가 대표 URL에서 읽히게 합니다.</p></article>
+      <article class="seo-cap"><h3>SEMANTIC HTML</h3><p>landmark와 H1–H3 계층을 화면의 정보 구조와 맞추고, 링크·버튼·이미지의 의미를 코드에 남깁니다.</p></article>
+      <article class="seo-cap"><h3>META · OG</h3><p>페이지 의도별 고유 title과 description, 공유 맥락이 이어지는 OG 정보, 일관된 대표 URL 정책을 적용합니다.</p></article>
+      <article class="seo-cap"><h3>SCHEMA.ORG</h3><p>화면에 보이는 기업·브랜드·제품·문서 정보를 JSON-LD로 연결하고 실제 콘텐츠와의 일치 여부를 검증합니다.</p></article>
+      <article class="seo-cap"><h3>INTENT · FAQ</h3><p>사용자의 검색 의도에 맞춰 본문 순서를 다시 잡고, 실제 질문에 짧은 답과 상세 근거가 이어지는 FAQ를 설계합니다.</p></article>
+      <article class="seo-cap"><h3>GEO · AEO</h3><p>질문 하나에 답 하나, 결론 우선 문장, 명확한 entity와 출처를 사용해 독립적으로 이해·인용 가능한 단락을 만듭니다.</p></article>
+    </div>
+
+    <div class="seo-cases">
+      <article class="seo-case">
+        <div class="seo-case-head"><h3>Pure Gold</h3><span class="status">사례 후보 · 성과 미기재</span></div>
+        <dl class="case-logic">
+          <dt>문제</dt><dd>제품 설명이 기능·캠페인 문구에 흩어지면 기본 질문과 제품 entity가 한눈에 연결되지 않을 수 있습니다.</dd>
+          <dt>전략</dt><dd><b>What → Why → How → FAQ</b> 순서로 제품 정의, 필요성, 이용 방식, 남은 질문을 해소합니다.</dd>
+          <dt>적용</dt><dd>각 장을 독립적인 답변 단위로 만들고 제품명·카테고리·핵심 특성을 본문과 메타데이터에서 일관되게 표현하는 구조입니다.</dd>
+          <dt>검증 / 결과</dt><dd>정보 구조 경험만 사례 후보로 기록했습니다. 배포 URL과 전후 데이터가 연결되기 전까지 순위·트래픽·전환 성과를 쓰지 않습니다.</dd>
+        </dl>
+      </article>
+
+      <article class="seo-case">
+        <div class="seo-case-head"><h3>한맥 (HANMAC)</h3><span class="status">AEO 후보 · 성과 미기재</span></div>
+        <dl class="case-logic">
+          <dt>문제</dt><dd>감성 카피 중심의 브랜드 콘텐츠만으로는 사용자의 구체적인 질문에 직접 답하기 어렵습니다.</dd>
+          <dt>전략</dt><dd>사용자의 표현을 질문 heading으로 만들고 <b>첫 문장에 답한 뒤</b> 상세 설명과 다음 행동을 연결합니다.</dd>
+          <dt>적용</dt><dd>질문별 section, 결론 우선 답변, 명시적인 브랜드·제품명, 관련 페이지 내부 링크로 질문형 콘텐츠 경험을 재구성합니다.</dd>
+          <dt>검증 / 결과</dt><dd>질문형 콘텐츠 경험을 AEO 관점의 사례 후보로 사용합니다. 실제 적용 범위와 검색·답변 노출 효과는 확인 전까지 성과로 표현하지 않습니다.</dd>
+        </dl>
+      </article>
+    </div>
+
+    <div class="seo-evidence">
+      <p><b>확인 가능한 적용 경험:</b> OB 기업 사이트의 영문 다국어 전환과 Schema.org 구조화 데이터 적용은 기존 프로젝트 이력에 기록했습니다. 리치 결과 노출이나 순위 성과는 별도 근거가 없어 기재하지 않았습니다.</p>
+      <a class="doc-link" href="https://github.com/nonexpertchassi-creator/portfolio/blob/main/docs/seo-geo.md" target="_blank" rel="noopener">상세 SEO/GEO 문서 보기 ↗</a>
     </div>
   </section>
 
@@ -445,6 +605,8 @@
       </ul>
     </div>
   </section>
+
+  </main>
 
   <footer>
     출처 — Azure DevOps 6개 저장소 (ABI_HANMAC · ABI_CASSCONNECT · ABI_STELLA · ABI_BUDWEISER · ABI_MICHELOB · ABI_OB)<br>

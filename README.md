@@ -1,5 +1,9 @@
 # 포트폴리오 — GitHub Pages 배포
 
+## 포트폴리오 문서
+
+- [SEO / GEO 포트폴리오 노트](docs/seo-geo.md) — Technical SEO, semantic HTML, 메타데이터, 구조화 데이터, 검색 의도 기반 콘텐츠, FAQ와 GEO/AEO 질문-답변 설계 기준 및 사례 후보
+
 ## 이미지 넣기
 `img/` 폴더에 스크린샷 파일을 넣기만 하면 자동으로 뜬다. 파일명은 index.html 이 기대하는 이름 그대로:
 
