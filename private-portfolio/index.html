@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="차호근 비공개 제출용 포트폴리오 — 기획, UX/UI, 퍼블리싱, 시스템 구축, SEO/GEO">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="theme-color" content="#f7f8fa">
+  <title>차호근 · 비공개 포트폴리오</title>
+  <style>
+    :root {
+      --paper: #f7f8fa;
+      --surface: #ffffff;
+      --fog: #e9edf3;
+      --fog-blue: #e9f2ff;
+      --ink: #111827;
+      --muted: #616b7a;
+      --blue: #3d8dff;
+      --blue-dark: #1458b8;
+      --midnight: #0f172a;
+      --line: #d9dee6;
+      --rail: 18rem;
+      --page: 78rem;
+      --radius: 1.1rem;
+      --display: "Arial Narrow", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      --body: "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
+      --utility: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    button, a { font: inherit; }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      z-index: 100;
+      transform: translateY(-180%);
+      padding: .75rem 1rem;
+      border-radius: .5rem;
+      background: var(--midnight);
+      color: #fff;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 80;
+      width: 0;
+      height: .25rem;
+      background: var(--blue);
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .rail {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 20;
+      display: flex;
+      width: var(--rail);
+      flex-direction: column;
+      padding: 2rem 1.75rem 1.5rem;
+      border-right: 1px solid var(--line);
+      background: rgba(247, 248, 250, .96);
+      backdrop-filter: blur(12px);
+    }
+    .rail__mark {
+      width: 2.75rem;
+      height: .3rem;
+      margin-bottom: 1.1rem;
+      background: var(--blue);
+    }
+    .rail__name {
+      margin: 0;
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+    .rail__label {
+      margin: .35rem 0 0;
+      color: var(--muted);
+      font-family: var(--utility);
+      font-size: .72rem;
+      line-height: 1.5;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .mode-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .35rem;
+      margin: 2rem 0 1.75rem;
+      padding: .3rem;
+      border: 1px solid var(--line);
+      border-radius: .75rem;
+      background: var(--surface);
+    }
+    .mode-switch button {
+      min-height: 2.5rem;
+      padding: .55rem .4rem;
+      border: 0;
+      border-radius: .5rem;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+    .mode-switch button[aria-pressed="true"] {
+      background: var(--midnight);
+      color: #fff;
+    }
+
+    .rail nav { margin-bottom: 1.5rem; }
+    .rail nav ul {
+      display: grid;
+      gap: .1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .rail nav a {
+      display: grid;
+      grid-template-columns: 2.2rem 1fr;
+      align-items: baseline;
+      padding: .55rem .35rem;
+      border-radius: .45rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .82rem;
+      line-height: 1.35;
+    }
+    .rail nav a::before {
+      content: attr(data-index);
+      color: var(--blue-dark);
+      font-family: var(--utility);
+      font-size: .66rem;
+    }
+    .rail nav a:hover,
+    .rail nav a[aria-current="true"] {
+      background: var(--fog-blue);
+      color: var(--ink);
+    }
+
+    .rail__privacy {
+      margin: auto 0 0;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .72rem;
+      line-height: 1.6;
+    }
+    .rail__privacy strong { color: var(--blue-dark); }
+
+    main {
+      grid-column: 2;
+      min-width: 0;
+    }
+    .mode-panel { min-height: 100vh; }
+
+    .page-section {
+      position: relative;
+      max-width: var(--page);
+      margin: 0 auto;
+      padding: 7rem 4rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .page-section:last-child { border-bottom: 0; }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 0 0 1.25rem;
+      color: var(--blue-dark);
+      font-family: var(--utility);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .section-kicker::before {
+      width: 2.6rem;
+      height: .25rem;
+      background: var(--blue);
+      content: "";
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 {
+      font-family: var(--display);
+      letter-spacing: -.045em;
+    }
+    h1 {
+      max-width: 13ch;
+      margin-bottom: 2rem;
+      font-size: clamp(3.3rem, 7vw, 6.8rem);
+      line-height: .98;
+    }
+    h2 {
+      max-width: 21ch;
+      margin-bottom: 1.15rem;
+      font-size: clamp(2.3rem, 4.4vw, 4.3rem);
+      line-height: 1.02;
+    }
+    h3 {
+      margin-bottom: .85rem;
+      font-size: clamp(1.35rem, 2vw, 2rem);
+      line-height: 1.1;
+    }
+    .lead {
+      max-width: 56rem;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+      line-height: 1.75;
+    }
+    .small-note {
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.65;
+    }
+
+    .hero {
+      display: grid;
+      min-height: 100svh;
+      align-content: center;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 2.25rem;
+    }
+    .tag {
+      padding: .45rem .7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-family: var(--utility);
+      font-size: .7rem;
+      font-weight: 700;
+    }
+
+    .structure-map {
+      display: grid;
+      gap: .9rem;
+      max-width: 57rem;
+      margin-top: 4.8rem;
+    }
+    .structure-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 8.5rem;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--utility);
+      font-size: .7rem;
+      letter-spacing: .05em;
+    }
+    .structure-row span:last-child { text-align: right; }
+    .structure-line {
+      position: relative;
+      height: 1px;
+      background: var(--ink);
+    }
+    .structure-line::after {
+      position: absolute;
+      top: 50%;
+      left: var(--node, 50%);
+      width: .72rem;
+      height: .72rem;
+      transform: translate(-50%, -50%);
+      border: .2rem solid var(--paper);
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 1px var(--blue);
+      content: "";
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 4rem;
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--line);
+    }
+    .scope-item {
+      min-height: 13rem;
+      padding: 1.5rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .scope-item span {
+      display: block;
+      margin-bottom: 2rem;
+      color: var(--blue-dark);
+      font-family: var(--utility);
+      font-size: .68rem;
+    }
+    .scope-item h3 { font-size: 1.35rem; }
+    .scope-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.65;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 3.5rem;
+    }
+    .panel {
+      padding: clamp(1.5rem, 3vw, 2.6rem);
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      background: var(--fog);
+    }
+    .panel--blue { background: var(--fog-blue); }
+    .panel__label {
+      display: inline-flex;
+      margin-bottom: 2rem;
+      padding: .42rem .7rem;
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--blue-dark);
+      font-family: var(--utility);
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .panel p,
+    .panel li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .panel ul {
+      margin: 1.5rem 0 0;
+      padding-left: 1.15rem;
+    }
+    .panel__bottom {
+      margin: 2rem 0 0 !important;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(17, 24, 39, .12);
+      color: var(--ink) !important;
+      font-size: .86rem !important;
+      font-weight: 700;
+    }
+    .panel--blue .panel__bottom { color: var(--blue-dark) !important; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 3.5rem;
+    }
+    .flow__item {
+      position: relative;
+      min-height: 8.8rem;
+      padding: 1.25rem;
+      border-radius: .8rem;
+      background: var(--fog);
+    }
+    .flow__item:last-child { background: var(--fog-blue); }
+    .flow__item:not(:last-child)::after {
+      position: absolute;
+      top: 50%;
+      right: -.8rem;
+      z-index: 2;
+      transform: translateY(-50%);
+      color: var(--blue);
+      content: "→";
+    }
+    .flow__item span {
+      display: block;
+      margin-bottom: 1.4rem;
+      color: var(--blue-dark);
+      font-family: var(--utility);
+      font-size: .67rem;
+      font-weight: 700;
+    }
+    .flow__item strong { line-height: 1.45; }
+
+    .decision-log {
+      margin: 3rem 0 0;
+      border-top: 1px solid var(--ink);
+    }
+    .decision-log li {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--line);
+      list-style: none;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .decision-log b {
+      color: var(--blue-dark);
+      font-family: var(--utility);
+      font-size: .72rem;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 4rem;
+      border-top: 1px solid var(--ink);
+    }
+    .metric {
+      min-height: 15rem;
+      padding: 1.75rem 1.4rem 1.5rem 0;
+      border-right: 1px solid var(--line);
+    }
+    .metric + .metric { padding-left: 1.4rem; }
+    .metric:last-child { border-right: 0; }
+    .metric strong {
+      display: block;
+      margin-bottom: 2.6rem;
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+    .metric:first-child strong { color: var(--blue-dark); }
+    .metric b {
+      display: block;
+      margin-bottom: .8rem;
+      font-size: .95rem;
+    }
+    .metric p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.6;
+    }
+    .proof-note {
+      margin-top: 1rem;
+      padding: 1.4rem 1.6rem;
+      border-radius: .8rem;
+      background: var(--fog);
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .process {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .process::before {
+      position: absolute;
+      top: 3.2rem;
+      right: 3rem;
+      left: 1rem;
+      height: 1px;
+      background: var(--ink);
+      content: "";
+    }
+    .process__item { position: relative; z-index: 1; }
+    .process__item span {
+      display: block;
+      margin-bottom: 2rem;
+      color: var(--blue-dark);
+      font-family: var(--utility);
+      font-size: .72rem;
+      font-weight: 700;
+    }
+    .process__dot {
+      width: 1rem;
+      height: 1rem;
+      margin-bottom: 2.2rem;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+    .process__item:last-child .process__dot { background: var(--blue); }
+    .process__item h3 { font-size: 1.45rem; }
+    .process__item p {
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+
+    .three-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 3.5rem;
+    }
+    .three-cards .panel { min-height: 21rem; }
+
+    .method {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 4rem;
+      border-top: 1px solid var(--ink);
+    }
+    .method__item {
+      min-height: 16rem;
+      padding: 1.6rem 1.6rem 1.6rem 0;
+      border-right: 1px solid var(--line);
+    }
+    .method__item + .method__item { padding-left: 1.6rem; }
+    .method__item:last-child { border-right: 0; }
+    .method__item span {
+      color: var(--blue-dark);
+      font-family: var(--utility);
+      font-size: .7rem;
+      font-weight: 700;
+    }
+    .method__item h3 { margin-top: 3.5rem; }
+    .method__item p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .closing {
+      display: grid;
+      min-height: 82svh;
+      max-width: none;
+      align-content: center;
+      margin: 0;
+      padding-right: max(4rem, calc((100vw - var(--rail) - var(--page)) / 2 + 4rem));
+      padding-left: max(4rem, calc((100vw - var(--rail) - var(--page)) / 2 + 4rem));
+      background: var(--midnight);
+      color: #fff;
+    }
+    .closing h2 { max-width: 16ch; }
+    .closing .lead { color: #cbd5e1; }
+    .closing .small-note { margin-top: 4rem; color: #94a3b8; }
+
+    .document-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      max-width: var(--page);
+      margin: 0 auto;
+      padding: 1.5rem 4rem 2rem;
+      color: var(--muted);
+      font-family: var(--utility);
+      font-size: .68rem;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1080px) {
+      :root { --rail: 15rem; }
+      .page-section { padding-right: 2.5rem; padding-left: 2.5rem; }
+      .scope-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .three-cards { grid-template-columns: 1fr; }
+      .three-cards .panel { min-height: auto; }
+    }
+
+    @media (max-width: 800px) {
+      :root { --rail: 0rem; }
+      .shell { display: block; }
+      .rail {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: auto;
+        padding: .85rem 1rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .rail__mark, .rail__label, .rail nav, .rail__privacy { display: none; }
+      .rail__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .rail__name { font-size: 1rem; }
+      .mode-switch { width: min(18rem, 64vw); margin: 0; }
+      .mode-switch button { min-height: 2.25rem; padding: .4rem .25rem; }
+      main { display: block; }
+      .page-section { padding: 5rem 1.25rem; }
+      .hero { min-height: calc(100svh - 4.25rem); }
+      h1 { font-size: clamp(3rem, 15vw, 5rem); }
+      h2 { font-size: clamp(2.15rem, 10vw, 3.6rem); }
+      .structure-row { grid-template-columns: 6.4rem minmax(0, 1fr); }
+      .structure-row span:last-child { display: none; }
+      .split, .scope-grid, .flow, .metrics, .process, .method {
+        grid-template-columns: 1fr;
+      }
+      .scope-item { min-height: 10rem; }
+      .flow__item:not(:last-child)::after { top: auto; right: 50%; bottom: -.9rem; transform: translateX(50%) rotate(90deg); }
+      .metric, .metric + .metric {
+        min-height: auto;
+        padding: 1.6rem 0;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .metric strong { margin-bottom: 1.2rem; }
+      .process { gap: 0; }
+      .process::before { top: 0; right: auto; bottom: 0; left: .45rem; width: 1px; height: auto; }
+      .process__item {
+        display: grid;
+        grid-template-columns: 2.6rem 1fr;
+        padding-bottom: 2rem;
+      }
+      .process__item span { grid-column: 2; margin-bottom: .5rem; }
+      .process__dot { grid-row: 1 / span 3; margin: .2rem 0 0; }
+      .process__item h3, .process__item p { grid-column: 2; }
+      .process__item h3 { margin-bottom: .4rem; }
+      .method__item, .method__item + .method__item {
+        min-height: auto;
+        padding: 1.6rem 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .method__item h3 { margin-top: 1.4rem; }
+      .closing {
+        padding-right: 1.25rem;
+        padding-left: 1.25rem;
+      }
+      .document-footer { padding-right: 1.25rem; padding-left: 1.25rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .001ms !important; animation-duration: .001ms !important; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 14mm; }
+      .progress, .rail, .skip-link { display: none !important; }
+      .shell, main { display: block; }
+      .page-section, .closing {
+        max-width: none;
+        min-height: 0;
+        padding: 18mm 0;
+        break-inside: avoid;
+      }
+      .closing { padding: 18mm; print-color-adjust: exact; }
+      .panel, .scope-item, .flow__item, .proof-note { print-color-adjust: exact; }
+      .document-footer { padding-right: 0; padding-left: 0; }
+    }
+  </style>
+</head>
+<body data-mode="career">
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <div class="shell">
+    <aside class="rail" aria-label="포트폴리오 메뉴">
+      <div class="rail__top">
+        <div>
+          <div class="rail__mark" aria-hidden="true"></div>
+          <p class="rail__name">차호근</p>
+          <p class="rail__label">Private portfolio<br>Design · System · GEO</p>
+        </div>
+
+        <div class="mode-switch" aria-label="포트폴리오 보기 선택">
+          <button type="button" data-mode-button="career" aria-pressed="true">이력서용</button>
+          <button type="button" data-mode-button="freelance" aria-pressed="false">프리랜서용</button>
+        </div>
+      </div>
+
+      <nav data-mode-nav="career" aria-label="이력서용 목차">
+        <ul>
+          <li><a href="#c-position" data-index="01">포지셔닝</a></li>
+          <li><a href="#c-scope" data-index="02">업무 범위</a></li>
+          <li><a href="#c-puix" data-index="03">PUI-X</a></li>
+          <li><a href="#c-evidence" data-index="04">기여 증거</a></li>
+          <li><a href="#c-contrast" data-index="05">산업별 적용</a></li>
+          <li><a href="#c-ai" data-index="06">AI 협업</a></li>
+        </ul>
+      </nav>
+
+      <nav data-mode-nav="freelance" aria-label="프리랜서용 목차" hidden>
+        <ul>
+          <li><a href="#f-services" data-index="01">제공 업무</a></li>
+          <li><a href="#f-fit" data-index="02">잘 맞는 프로젝트</a></li>
+          <li><a href="#f-process" data-index="03">진행 방식</a></li>
+          <li><a href="#f-cases" data-index="04">사례</a></li>
+          <li><a href="#f-geo" data-index="05">SEO / GEO</a></li>
+          <li><a href="#f-private" data-index="06">대외비 원칙</a></li>
+        </ul>
+      </nav>
+
+      <p class="rail__privacy"><strong>PRIVATE</strong><br>제출 대상 외 재배포 금지<br>공개 전 고객명·수치 재검토</p>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <article class="mode-panel" data-mode-panel="career">
+        <section class="page-section hero" id="c-position" data-observe-section>
+          <p class="section-kicker">Career portfolio · 2026</p>
+          <h1>구조를 읽고,<br>직접 만드는 사람</h1>
+          <p class="lead">17년 디자인 실무를 기반으로 영상·퍼블리싱에서 출발해 사내 시스템 구축과 GEO 전략까지 업무를 확장했습니다. 콘텐츠 구조, 시스템 구조, 코드 구조를 한 사람 안에서 연결합니다.</p>
+          <div class="hero__meta" aria-label="핵심 역량">
+            <span class="tag">PLANNING</span>
+            <span class="tag">UX / UI</span>
+            <span class="tag">PUBLISHING</span>
+            <span class="tag">SYSTEM</span>
+            <span class="tag">SEO / GEO</span>
+          </div>
+          <div class="structure-map" aria-label="역할 확장 구조">
+            <div class="structure-row"><span>CONTENT</span><i class="structure-line" style="--node:22%"></i><span>보이는 것을 만든다</span></div>
+            <div class="structure-row"><span>SYSTEM</span><i class="structure-line" style="--node:54%"></i><span>반복을 구조화한다</span></div>
+            <div class="structure-row"><span>INTELLIGENCE</span><i class="structure-line" style="--node:84%"></i><span>읽히는 방식을 설계한다</span></div>
+          </div>
+        </section>
+
+        <section class="page-section" id="c-scope" data-observe-section>
+          <p class="section-kicker">Scope</p>
+          <h2>기획부터 운영까지, 한 흐름으로 연결합니다</h2>
+          <p class="lead">각 단계를 따로 수행한 것이 아니라 실제 프로젝트에서 앞뒤 의사결정을 연결해 왔습니다.</p>
+          <div class="scope-grid">
+            <article class="scope-item"><span>01</span><h3>기획</h3><p>요구사항·목표·제약을 정리하고 문제를 정의합니다.</p></article>
+            <article class="scope-item"><span>02</span><h3>스토리보드</h3><p>콘텐츠 흐름과 화면 단위의 의도를 문서화합니다.</p></article>
+            <article class="scope-item"><span>03</span><h3>유저플로우</h3><p>진입·분기·완료까지 사용자의 경로를 설계합니다.</p></article>
+            <article class="scope-item"><span>04</span><h3>UX</h3><p>정보 구조와 상호작용의 우선순위를 정리합니다.</p></article>
+            <article class="scope-item"><span>05</span><h3>UI 디자인</h3><p>브랜드와 기능을 함께 살리는 화면을 만듭니다.</p></article>
+            <article class="scope-item"><span>06</span><h3>디자인 리딩</h3><p>기준을 세우고 리뷰·협업·품질을 조율합니다.</p></article>
+            <article class="scope-item"><span>07</span><h3>퍼블리싱</h3><p>시맨틱 HTML·반응형·접근성까지 구현합니다.</p></article>
+            <article class="scope-item"><span>08</span><h3>영상 제작</h3><p>기획·편집·모션으로 브랜드 메시지를 완성합니다.</p></article>
+          </div>
+        </section>
+
+        <section class="page-section" id="c-puix" data-observe-section>
+          <p class="section-kicker">Case · PUI-X</p>
+          <h2>반복 제작을 운영 시스템으로 바꾸다</h2>
+          <p class="lead">동일 템플릿 40종을 수작업으로 제작·유지하던 구조를 문제로 정의하고, 기획·설계·구현·배포·운영을 단독으로 수행했습니다.</p>
+
+          <div class="split">
+            <article class="panel">
+              <span class="panel__label">Before</span>
+              <h3>40종을 각각 수정하는 구조</h3>
+              <p>수정 요청 전달 → 40회 수작업 → 검수 → 재작업. 1px 변경도 40번의 편집과 40번의 오류 가능성으로 확산됐습니다.</p>
+              <p class="panel__bottom">문제 정의 · 수정 비용이 산출물 개수에 비례</p>
+            </article>
+            <article class="panel panel--blue">
+              <span class="panel__label">After</span>
+              <h3>데이터와 규칙으로 생성하는 구조</h3>
+              <p>Excel 상품 데이터 → 단일 템플릿과 변형 규칙 → 자동 렌더·캡처 → 결과 검수. 수정 지점을 템플릿과 데이터 규칙으로 집중시켰습니다.</p>
+              <p class="panel__bottom">운영 원칙 · 수정 비용과 산출물 개수를 분리</p>
+            </article>
+          </div>
+
+          <div class="flow" aria-label="PUI-X 데이터 흐름">
+            <div class="flow__item"><span>INPUT</span><strong>Excel 상품 데이터</strong></div>
+            <div class="flow__item"><span>RULE</span><strong>단일 템플릿 + 변형 스키마</strong></div>
+            <div class="flow__item"><span>RENDER</span><strong>서버 렌더·자동 캡처</strong></div>
+            <div class="flow__item"><span>OUTPUT</span><strong>40종 결과물·ZIP</strong></div>
+          </div>
+
+          <ol class="decision-log" aria-label="의사결정 로그">
+            <li><b>01</b><span>40개 HTML 복제 검토 → 변형 간 차이 누적 → <strong>단일 템플릿 + 변형 스키마</strong></span></li>
+            <li><b>02</b><span>브라우저 수동 캡처 검토 → 환경·절차 편차 → <strong>Playwright 서버 캡처</strong></span></li>
+            <li><b>03</b><span>수동 배경 제거 검토 → 반복·품질 편차 → <strong>AI 제거 + 이미지 후처리</strong></span></li>
+          </ol>
+        </section>
+
+        <section class="page-section" id="c-evidence" data-observe-section>
+          <p class="section-kicker">Evidence</p>
+          <h2>넓은 역할을 코드와 운영의 증거까지 연결했습니다</h2>
+          <p class="lead">ABI 6개 프로젝트의 PL/PM 경험과 현재 라이브 코드의 기여 이력을 기준으로 확인한 범위입니다.</p>
+          <div class="metrics">
+            <article class="metric"><strong>6</strong><b>ABI 프로젝트 PL/PM</b><p>브랜드·캠페인 프로젝트의 일정, 구조, 품질을 조율</p></article>
+            <article class="metric"><strong>52,611</strong><b>현재 라이브 코드 라인</b><p>확인 가능한 공개 저장소의 현행 코드 기준</p></article>
+            <article class="metric"><strong>510</strong><b>직접 작성 커밋</b><p>git history에서 작성자를 확인할 수 있는 커밋</p></article>
+            <article class="metric"><strong>944</strong><b>직접 + 리딩 커밋</b><p>직접 작업과 구조 리뷰·리딩 범위를 합산</p></article>
+          </div>
+          <p class="proof-note">PUI-X 16,924줄 · 파일 52개에서 80% 이상 소유권 · 최초 제작자가 직접 관리하지 않는 현재도 팀 운영에 사용</p>
+          <p class="small-note">수치는 node_modules 제외 및 확인 가능한 저장소 범위 기준입니다. 검색 성과나 매출 효과는 포함하지 않았습니다.</p>
+        </section>
+
+        <section class="page-section" id="c-contrast" data-observe-section>
+          <p class="section-kicker">Industry contrast</p>
+          <h2>같은 구조 역량도 산업의 제약에 따라 다르게 적용했습니다</h2>
+          <p class="lead">브랜드 경험은 속도와 상호작용을, 규제 산업은 조건과 근거의 누락 방지를 우선했습니다.</p>
+          <div class="split">
+            <article class="panel">
+              <span class="panel__label">Brand / FMCG</span>
+              <h3>ABI · 6개 브랜드 프로젝트</h3>
+              <p>PL/PM 전담 · 5인 팀 협업</p>
+              <ul><li>지도·QR 이벤트·프로모션·다국어 화면</li><li>디자인 토큰과 BEM/SEO 규칙</li><li>접근성·모바일 이슈 리뷰</li></ul>
+              <p class="panel__bottom">핵심 · 빠르게 바뀌는 경험을 일관된 구조로 유지</p>
+            </article>
+            <article class="panel panel--blue">
+              <span class="panel__label">Finance</span>
+              <h3>DB손해보험 · DirectDB</h3>
+              <p>보험 상품 사이트의 정보 구조·화면 설계·디자인과 PC·모바일 퍼블리싱 방향을 제시했습니다.</p>
+              <ul><li>조건·제외·고지·출처를 보존하는 구조</li><li>백엔드와 직접 코드 기여는 범위에서 제외</li></ul>
+              <p class="panel__bottom">핵심 · 짧은 문장보다 정확한 조건과 근거를 우선</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" id="c-ai" data-observe-section>
+          <p class="section-kicker">AI collaboration</p>
+          <h2>AI는 속도 도구이기 전에 검증 대상입니다</h2>
+          <p class="lead">9,000줄 규모 세션 이후 컨텍스트를 모듈 단위로 통제하고, 탐색·구현·검증을 분리했습니다.</p>
+          <div class="method">
+            <article class="method__item"><span>01 · CONTEXT</span><h3>범위를 줄인다</h3><p>작업 단위를 모듈로 분리하고 필요한 코드와 조건만 전달합니다.</p></article>
+            <article class="method__item"><span>02 · BUILD</span><h3>제안을 구현한다</h3><p>AI 출력은 초안으로 다루고 diff와 영향 범위를 함께 확인합니다.</p></article>
+            <article class="method__item"><span>03 · VERIFY</span><h3>사람이 승인한다</h3><p>테스트·출처·예외·롤백 가능성을 사람이 최종 판단합니다.</p></article>
+          </div>
+          <p class="proof-note">검증 사례 · 법령 자료 149건 / 현행 문서 45건 / 5,036개 청크 / 제안 질문 345개 전수 테스트</p>
+        </section>
+
+        <section class="page-section closing" aria-labelledby="career-closing">
+          <p class="section-kicker">Career portfolio</p>
+          <h2 id="career-closing">넓게 해본 사람이 아니라,<br>구조를 연결해 끝까지 만든 사람</h2>
+          <p class="lead">기획·설계·디자인·퍼블리싱·운영까지 필요한 경계를 직접 넘습니다.</p>
+          <p class="small-note">비공개 제출본 · 연락처는 동봉 이력서 참조</p>
+        </section>
+      </article>
+
+      <article class="mode-panel" data-mode-panel="freelance" hidden>
+        <section class="page-section hero" id="f-services" data-observe-section>
+          <p class="section-kicker">Freelance portfolio · 2026</p>
+          <h1>기획부터 구현까지,<br>한 사람에게 맡기는 프로젝트</h1>
+          <p class="lead">요구사항이 아직 정리되지 않은 단계부터 구조를 잡고, 실제로 사용할 수 있는 결과물까지 연결합니다. 필요한 단계만 의뢰해도 전체 흐름은 끊기지 않습니다.</p>
+          <div class="hero__meta" aria-label="제공 업무">
+            <span class="tag">STRATEGY</span>
+            <span class="tag">STORYBOARD</span>
+            <span class="tag">UX / UI</span>
+            <span class="tag">PUBLISHING</span>
+            <span class="tag">AUTOMATION</span>
+          </div>
+          <div class="scope-grid">
+            <article class="scope-item"><span>01</span><h3>기획</h3><p>요구사항, 목표, 일정, 리스크를 정리합니다.</p></article>
+            <article class="scope-item"><span>02</span><h3>스토리보드</h3><p>페이지와 콘텐츠 단위의 의도를 문서화합니다.</p></article>
+            <article class="scope-item"><span>03</span><h3>유저플로우</h3><p>사용자의 진입·분기·완료 경로를 설계합니다.</p></article>
+            <article class="scope-item"><span>04</span><h3>UX</h3><p>정보 구조와 사용 맥락을 우선순위로 정리합니다.</p></article>
+            <article class="scope-item"><span>05</span><h3>UI 디자인</h3><p>브랜드와 기능을 반영한 화면을 제작합니다.</p></article>
+            <article class="scope-item"><span>06</span><h3>디자인 리딩</h3><p>다수 협업자의 기준과 품질을 조율합니다.</p></article>
+            <article class="scope-item"><span>07</span><h3>퍼블리싱</h3><p>반응형·접근성·시맨틱 마크업을 구현합니다.</p></article>
+            <article class="scope-item"><span>08</span><h3>영상 제작</h3><p>스토리, 편집, 모션으로 메시지를 완성합니다.</p></article>
+          </div>
+        </section>
+
+        <section class="page-section" id="f-fit" data-observe-section>
+          <p class="section-kicker">Best fit</p>
+          <h2>이런 프로젝트에 특히 잘 맞습니다</h2>
+          <p class="lead">화면만 만드는 일보다 여러 조건이 얽혀 있고, 누군가 구조를 정리해야 앞으로 나아가는 프로젝트에 강합니다.</p>
+          <div class="three-cards">
+            <article class="panel"><span class="panel__label">Brand</span><h3>브랜드·캠페인 사이트</h3><p>스토리보드와 UI, 반응형 퍼블리싱, 이벤트·QR·지도 등 인터랙션까지 연결합니다.</p></article>
+            <article class="panel"><span class="panel__label">System</span><h3>사내 업무 자동화</h3><p>반복 작업을 데이터·규칙·템플릿으로 바꾸고 운영 가능한 도구로 구현합니다.</p></article>
+            <article class="panel panel--blue"><span class="panel__label">Search</span><h3>SEO / GEO 구조 개선</h3><p>검색 의도, 시맨틱 구조, 스키마, FAQ와 답변형 콘텐츠를 업종에 맞게 설계합니다.</p></article>
+          </div>
+        </section>
+
+        <section class="page-section" id="f-process" data-observe-section>
+          <p class="section-kicker">Process</p>
+          <h2>일은 다섯 단계로 진행합니다</h2>
+          <p class="lead">문서가 없거나 요구사항이 덜 정리돼 있어도 진단 단계에서 필요한 질문과 결정 항목부터 만듭니다.</p>
+          <div class="process">
+            <article class="process__item"><span>01</span><i class="process__dot"></i><h3>진단</h3><p>목표·사용자·제약</p></article>
+            <article class="process__item"><span>02</span><i class="process__dot"></i><h3>구조</h3><p>IA·플로우·우선순위</p></article>
+            <article class="process__item"><span>03</span><i class="process__dot"></i><h3>디자인</h3><p>스토리보드·UX/UI</p></article>
+            <article class="process__item"><span>04</span><i class="process__dot"></i><h3>구현</h3><p>퍼블리싱·자동화</p></article>
+            <article class="process__item"><span>05</span><i class="process__dot"></i><h3>검증</h3><p>QA·인수·운영 문서</p></article>
+          </div>
+          <p class="proof-note">각 단계 종료 시 · 결정 사항 / 남은 리스크 / 다음 산출물 / 변경 영향 범위를 함께 공유</p>
+        </section>
+
+        <section class="page-section" id="f-cases" data-observe-section>
+          <p class="section-kicker">Cases</p>
+          <h2>결과물보다 먼저, 바꿔야 할 구조를 찾습니다</h2>
+          <div class="split">
+            <article class="panel">
+              <span class="panel__label">Case 01 · PUI-X</span>
+              <h3>40번의 수작업을 한 번의 운영으로</h3>
+              <p>템플릿 40종의 제작·수정·캡처를 데이터 기반으로 자동화한 사내 시스템입니다.</p>
+              <ul><li>Excel 데이터 입력</li><li>단일 템플릿 + 변형 규칙</li><li>서버 렌더·자동 캡처·ZIP 출력</li></ul>
+              <p class="panel__bottom">범위 · 문제 정의부터 운영과 인수 구조까지 단독 수행</p>
+            </article>
+            <article class="panel panel--blue">
+              <span class="panel__label">Case 02 · ABI</span>
+              <h3>빠르게 바뀌는 캠페인을 일관된 구조로</h3>
+              <p>6개 브랜드 프로젝트의 PL/PM을 맡고 5인 팀의 화면 구조, 품질, 구현 범위를 조율했습니다.</p>
+              <ul><li>최장 운영 사례 17개월</li><li>Cass Connect Bluepass 0 → 1 구축</li><li>정보 구조·유저플로우·디자인 기준·운영 개선</li></ul>
+              <p class="panel__bottom">핵심 · 바뀌는 캠페인 안에서도 재사용 가능한 기준 유지</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" id="f-geo" data-observe-section>
+          <p class="section-kicker">SEO / GEO</p>
+          <h2>검색과 답변 엔진이 읽을 수 있는 구조</h2>
+          <p class="lead">같은 GEO 방법론도 FMCG는 제품 경험을, 금융은 조건과 근거를 우선하도록 꺾어 적용합니다.</p>
+          <div class="split">
+            <article class="panel">
+              <span class="panel__label">FMCG</span>
+              <h3>제품 엔티티와 질문의 맥락</h3>
+              <ul><li>What / Why / How + FAQ</li><li>제품·브랜드 정보를 명시하는 텍스트 레이어</li><li>Pure Gold·한맥의 질문형 콘텐츠 구조를 사례 후보로 활용</li></ul>
+              <p class="panel__bottom">검증되지 않은 검색·LLM 성과 수치는 표기하지 않음</p>
+            </article>
+            <article class="panel panel--blue">
+              <span class="panel__label">Finance</span>
+              <h3>조건·제외·출처를 보존하는 답변</h3>
+              <ul><li>보험 상품의 조건·제외·고지·적용일</li><li>시맨틱 HTML·heading·meta/OG·canonical·schema</li><li>FAQ가 원문 조건을 축약해 왜곡하지 않는지 검증</li></ul>
+              <p class="panel__bottom">DirectDB는 설계·디자인·퍼블리싱 방향 범위</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" id="f-private" data-observe-section>
+          <p class="section-kicker">Confidentiality</p>
+          <h2>대외비 프로젝트는 공개하지 않고도 설명할 수 있습니다</h2>
+          <p class="lead">실제 전달본에는 승인된 범위만 남기고, 작업 방식과 의사결정은 재현 가능한 문서로 제공합니다.</p>
+          <div class="split">
+            <article class="panel">
+              <span class="panel__label">Deliverables</span>
+              <h3>프로젝트 종료 시 받는 것</h3>
+              <ul><li>요구사항·IA·유저플로우</li><li>스토리보드·UX/UI 원본</li><li>퍼블리싱 결과물 또는 운영 도구</li><li>QA·인수·유지보수 문서</li></ul>
+              <p class="panel__bottom">범위와 파일 형식은 착수 전에 합의</p>
+            </article>
+            <article class="panel panel--blue">
+              <span class="panel__label">Access</span>
+              <h3>공개와 접근을 분리하는 원칙</h3>
+              <ul><li>승인 없는 화면·데이터 재사용 금지</li><li>포트폴리오에는 익명화한 역할·과정만 표기</li><li>저장소·운영 데이터 접근 권한 분리</li><li>검증된 사실과 합의된 성과만 사용</li></ul>
+              <p class="panel__bottom">필요 시 비공개 제출본과 NDA 범위로만 공유</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section closing" aria-labelledby="freelance-closing">
+          <p class="section-kicker">Freelance portfolio</p>
+          <h2 id="freelance-closing">요구사항이 아직 정리되지 않았을 때부터 함께할 수 있습니다</h2>
+          <p class="lead">문제를 구조화하고, 화면을 만들고, 실제 운영 가능한 결과물까지 연결합니다.</p>
+          <p class="small-note">비공개 제안용 · 연락은 본 자료를 전달한 채널로 회신</p>
+        </section>
+      </article>
+
+      <footer class="document-footer">
+        <span>PRIVATE · 제출 대상 외 재배포 금지</span>
+        <span>차호근 · 2026</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const buttons = [...document.querySelectorAll('[data-mode-button]')];
+      const panels = [...document.querySelectorAll('[data-mode-panel]')];
+      const navs = [...document.querySelectorAll('[data-mode-nav]')];
+      const progress = document.querySelector('.progress');
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function setMode(mode, updateHash = true) {
+        const safeMode = mode === 'freelance' ? 'freelance' : 'career';
+        document.body.dataset.mode = safeMode;
+        buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.modeButton === safeMode)));
+        panels.forEach(panel => { panel.hidden = panel.dataset.modePanel !== safeMode; });
+        navs.forEach(nav => { nav.hidden = nav.dataset.modeNav !== safeMode; });
+        document.title = `차호근 · ${safeMode === 'career' ? '이력서용' : '프리랜서용'} 비공개 포트폴리오`;
+        if (updateHash) history.replaceState(null, '', safeMode === 'career' ? '#career' : '#freelance');
+        window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+        updateCurrentNav();
+      }
+
+      function modeFromHash() {
+        const hash = location.hash;
+        if (hash === '#freelance' || hash.startsWith('#f-')) return 'freelance';
+        return 'career';
+      }
+
+      function updateProgress() {
+        const height = document.documentElement.scrollHeight - innerHeight;
+        const value = height > 0 ? Math.min(100, Math.max(0, scrollY / height * 100)) : 0;
+        progress.style.width = `${value}%`;
+      }
+
+      function updateCurrentNav() {
+        const activeMode = document.body.dataset.mode;
+        const links = [...document.querySelectorAll(`[data-mode-nav="${activeMode}"] a`)];
+        const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+        let current = sections[0];
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top <= innerHeight * .36) current = section;
+        }
+        links.forEach(link => link.setAttribute('aria-current', String(current && link.getAttribute('href') === `#${current.id}`)));
+      }
+
+      buttons.forEach(button => button.addEventListener('click', () => setMode(button.dataset.modeButton)));
+      document.querySelectorAll('.rail nav a').forEach(link => link.addEventListener('click', () => {
+        const mode = link.closest('[data-mode-nav]').dataset.modeNav;
+        if (mode !== document.body.dataset.mode) setMode(mode, false);
+      }));
+      addEventListener('scroll', () => { updateProgress(); updateCurrentNav(); }, { passive: true });
+      addEventListener('resize', () => { updateProgress(); updateCurrentNav(); });
+      addEventListener('hashchange', () => setMode(modeFromHash(), false));
+
+      setMode(modeFromHash(), false);
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
