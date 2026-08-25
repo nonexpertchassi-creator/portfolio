@@ -415,6 +415,16 @@
         <figure class="shot"><a href="https://www.directdb.co.kr" target="_blank" rel="noopener"><img src="img/db.png" alt="다이렉트DB 화면" loading="lazy" onerror="this.closest('.shot').remove()"></a><figcaption><a href="https://www.directdb.co.kr" target="_blank" rel="noopener">directdb.co.kr ↗</a></figcaption></figure>
       </article>
 
+      <article class="proj">
+        <div class="proj-top"><h3>승강기 현장관리 앱 — 구일엘리베이터(주)</h3><span class="rank">공동 개발 · 기획·설계·QA</span><span class="when">2026 · 바이브코딩 · 운영 중</span></div>
+        <div class="tags">
+          <span>Next.js 16 · React 19</span><span>Supabase(PostgreSQL·RLS)</span><span>PWA · Capacitor</span><span>RAG(pgvector)</span><span>OpenAI API</span><span>알림톡·웹푸시</span>
+        </div>
+        <p class="proj-work"><b>실제 회사가 매일 쓰는 업무 앱입니다.</b> 승강기 유지보수 기사와 관리자가 고장접수·자체점검·검사관리·자재/견적·비용청구·재고를 한 곳에서 처리합니다. 개발자 1명과 둘이 만들었고, 저는 <b>기획·화면설계·QA 규칙·문서화</b>를 맡으면서 <b>검사기준 Q&amp;A 챗봇, 알림톡 전환, UI/UX 개선</b>을 직접 구현했습니다. 현장 761곳·기사 계정이 붙어 운영 중입니다.</p>
+        <p class="proj-work"><b>가장 공들인 것 — 법령 검색 챗봇(RAG).</b> 승강기 안전기준은 별표 하나가 20만 자라 현장에서 찾을 수가 없습니다. 공단 법령자료 149건에서 현행본 45건을 추려 <b>조항 단위 5,036청크</b>로 자르고 임베딩해, 물어보면 <b>조항 번호·시행일과 함께</b> 답하게 만들었습니다. 키워드(정확한 조문·수치)와 벡터(현장 말투)를 <b>RRF로 합친 하이브리드 검색</b>이라 "도어대기타임" 같은 은어로 물어도 조문을 찾아냅니다. 추천 질문 345개는 법령에서 자동 생성한 뒤 <b>전부 실제로 물어보는 전수 검증</b>으로 답 못 하는 것을 걸러냈습니다.</p>
+        <p class="meta-line">소스 <b>291파일 · 2.2MB</b> · API 26 · DB 마이그레이션 137 · 컴포넌트 65<br>본인 세션 <b>771커밋</b> (본인 명의 342 + AI 페어 429) · 6주 · 설계·QA 문서 <b>129건</b></p>
+      </article>
+
     </div>
   </section>
 
@@ -431,7 +441,7 @@
         <li><b>흩어진 커밋 계정을 합쳤습니다.</b> 대소문자·표기가 다른 4개 아이덴티티(<code>hogeun cha</code>, <code>hogeun.cha</code>, <code>Hogeun.cha</code>)와 개인 계정 커밋을 동일인으로 병합해 <b>510커밋</b>을 얻었습니다.</li>
         <li><b>"리드한 커밋"과 "내가 쓴 코드"를 절대 섞지 않았습니다.</b> 944커밋은 내 510커밋 + 내가 지시한 팀원 5명의 434커밋입니다. 팀원 커밋은 <b>내가 작성한 코드가 아니며</b>, 코드 줄 수(52,611줄) 집계에는 <b>단 한 줄도 포함하지 않았습니다.</b> 내 팀이 아닌 개발자들의 커밋 559개는 전부 제외했습니다.</li>
         <li><b>한계도 밝힙니다.</b> blame은 각 줄을 <i>마지막으로 만진</i> 사람에게 귀속시킵니다. 내가 지운 코드는 세지 않고, 남이 내 코드를 덮어쓴 줄도 빠집니다 — 즉 이 숫자는 <b>보수적으로 잡힌 하한선</b>에 가깝습니다.</li>
-        <li><b>ABI 밖 프로젝트는 다른 기준으로 표기했습니다.</b> PUI-X V2는 성격이 달라 blame 대신 총 규모(16,924줄, 단독)로, 다이렉트DB는 코드 기여가 아닌 <b>설계·디자인 리드</b> 역할이라 커밋 지표를 붙이지 않았습니다 — 숫자로 부풀리지 않기 위해서입니다.</li>
+        <li><b>ABI 밖 프로젝트는 다른 기준으로 표기했습니다.</b> PUI-X V2는 성격이 달라 blame 대신 총 규모(16,924줄, 단독)로, 다이렉트DB는 코드 기여가 아닌 <b>설계·디자인 리드</b> 역할이라 커밋 지표를 붙이지 않았습니다 — 숫자로 부풀리지 않기 위해서입니다. 구일엘리베이터 앱은 <b>개발자 1명과의 공동 작업</b>이라 blame 줄 수 대신 <b>본인 세션 커밋(771)과 담당 영역</b>으로 표기했고, 상대 개발자의 708커밋은 <b>제 지표에 넣지 않았습니다.</b> AI 페어 세션에서 나온 429커밋은 제가 지시·검수한 것이라 본인 세션에 포함했으나, <b>제가 직접 타이핑한 코드와는 구분해 적었습니다.</b></li>
       </ul>
     </div>
   </section>
